@@ -57,6 +57,7 @@
         android:layout_width="104dp"
         android:layout_height="26dp"
         android:text="Toppings"
+        android:textColor="#000000"
         android:textSize="20sp"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="284dp" />
@@ -66,9 +67,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sauce"
-        android:textSize="16sp"
-        tools:layout_editor_absoluteX="228dp"
-        tools:layout_editor_absoluteY="334dp" />
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="225dp"
+        tools:layout_editor_absoluteY="325dp" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="196dp"
@@ -77,14 +78,6 @@
         tools:layout_editor_absoluteY="395dp">
 
     </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:layout_width="138dp"
-        android:layout_height="38dp"
-        android:hint="Sauce"
-        android:textAllCaps="false"
-        tools:layout_editor_absoluteX="228dp"
-        tools:layout_editor_absoluteY="357dp" />
 
     <CheckBox
         android:id="@+id/checkBox"
@@ -107,7 +100,36 @@
         android:layout_width="60dp"
         android:layout_height="23dp"
         android:text="Price $"
+        android:textColor="#000000"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="642dp" />
+
+    <EditText
+        android:id="@+id/editTextText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:text="14.99"
+        tools:layout_editor_absoluteX="62dp"
+        tools:layout_editor_absoluteY="631dp" />
+
+    <EditText
+        android:id="@+id/editTextText2"
+        android:layout_width="170dp"
+        android:layout_height="38dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Name"
+        tools:layout_editor_absoluteX="225dp"
+        tools:layout_editor_absoluteY="357dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="109dp"
+        android:layout_height="54dp"
+        android:text="Add to Order"
+        tools:layout_editor_absoluteX="286dp"
+        tools:layout_editor_absoluteY="631dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
