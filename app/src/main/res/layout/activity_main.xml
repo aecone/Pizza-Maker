@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/openSpecialtyPizza"
         android:layout_width="158dp"
         android:layout_height="53dp"
         android:text="Button"
@@ -15,7 +15,7 @@
         tools:layout_editor_absoluteY="261dp" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/openSpecialtyPizza"
         android:layout_width="158dp"
         android:layout_height="53dp"
         android:text="Store Order"
@@ -23,7 +23,7 @@
         tools:layout_editor_absoluteY="565dp" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/openSpecialtyPizza"
         android:layout_width="158dp"
         android:layout_height="53dp"
         android:text="Current Order"
@@ -45,51 +45,51 @@
         app:layout_constraintVertical_bias="0.044" />
 
     <ImageButton
-        android:id="@+id/imageButton6"
+        android:id="@+id/openSpecialtyPizza"
         android:layout_width="176dp"
         android:layout_height="149dp"
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.931"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/BuildYourOwn"
+        app:srcCompat="@drawable/buildyourown"
         tools:layout_editor_absoluteY="112dp" />
 
     <ImageButton
-        android:id="@+id/imageButton6"
+        android:id="@+id/openSpecialtyPizza"
         android:layout_width="176dp"
         android:layout_height="149dp"
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.931"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/StoreOrders"
+        app:srcCompat="@drawable/storeorder"
         tools:layout_editor_absoluteY="416dp" />
 
     <ImageButton
-        android:id="@+id/imageButton6"
+        android:id="@+id/openSpecialtyPizza"
         android:layout_width="176dp"
         android:layout_height="149dp"
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.068"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/Specialty"
+        app:srcCompat="@drawable/specialty"
         tools:layout_editor_absoluteY="112dp" />
 
     <ImageButton
-        android:id="@+id/imageButton6"
+        android:id="@+id/openSpecialtyPizza"
         android:layout_width="176dp"
         android:layout_height="149dp"
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.068"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/CurrentOrder"
+        app:srcCompat="@drawable/currentorder"
         tools:layout_editor_absoluteY="416dp" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/openSpecialtyPizza"
         android:layout_width="158dp"
         android:layout_height="53dp"
         android:text="Specialty Pizzas"
@@ -100,7 +100,7 @@
         tools:layout_editor_absoluteY="261dp" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/openSpecialtyPizza"
         android:layout_width="158dp"
         android:layout_height="53dp"
         android:text="Build Your Own"
