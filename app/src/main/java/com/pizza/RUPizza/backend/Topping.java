@@ -1,4 +1,4 @@
-package com.pizza.softmeth4.backend;
+package com.pizza.RUPizza.backend;
 
 /**
  * This is an enum class for the toppings of the pizza

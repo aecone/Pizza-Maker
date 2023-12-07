@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "SoftMeth4"
+rootProject.name = "RUPizza"
 include(":app")
  

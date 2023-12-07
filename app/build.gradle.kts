@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.pizza.softmeth4"
+    namespace = "com.pizza.RUPizza"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.pizza.softmeth4"
+        applicationId = "com.pizza.RUPizza"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

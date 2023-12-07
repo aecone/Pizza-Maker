@@ -1,48 +1,42 @@
-package com.pizza.softmeth4.backend;
+package com.pizza.RUPizza.backend;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 /**
- * This class represents a pepperoni pizza
+ * This class represents a meatzza pizza
  * @author Eric Cheung, Andrea Kim
  */
-public class Pepperoni extends Pizza{
+public class Meatzza extends Pizza{
 
     /**
-     * Default constructor for pepperoni pizza
+     * Default constructor for meatzza pizza
      */
-    public Pepperoni() {
+    public Meatzza() {
         toppings = new ArrayList<>();
+        toppings.add(Topping.SAUSAGE);
         toppings.add(Topping.PEPPERONI);
+        toppings.add(Topping.BEEF);
+        toppings.add(Topping.HAM);
         sauce = Sauce.TOMATO;
     }
 
     /**
-     * Method to calculate and return the price of the pepperoni pizza
-     * @return price of the pepperoni pizza
+     * Method to calculate and return the price of the meatzza pizza
+     * @return price of the meatzza pizza
      */
     @Override
     public double price() {
-        double price = 10.99;
+        double price = 16.99;
         if(extraCheese){
             price++;
         }
         if(extraSauce){
             price++;
         }
-//        switch (size.getSize()) {
-//            case "Medium" -> price+=2;
-//            case "Large" -> price+=4;
-//        }
-
         switch (size.getSize()) {
-            case "Medium":
-                price += 2;
-                break;
-            case "Large":
-                price += 4;
-                break;
-        }
+            case "Medium" -> price+=2;
+            case "Large" -> price+=4;
+        };
         return price;
     }
 
@@ -60,6 +54,7 @@ public class Pepperoni extends Pizza{
         if(extraCheese){
             extra+=",extra cheese";
         }
-        return "[Pepperoni] Pepperoni,"+size.getSize()+","+sauce.getSauce()+extra+" $"+decimal.format(price());
+        return "[Meatzza] Sausage,Pepperoni,Beef,Ham,"+size.getSize()+","+sauce.getSauce()+extra+" $"+decimal.format(price());
     }
 }
+

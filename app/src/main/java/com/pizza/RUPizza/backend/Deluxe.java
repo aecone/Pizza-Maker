@@ -1,41 +1,53 @@
-package com.pizza.softmeth4.backend;
+package com.pizza.RUPizza.backend;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 /**
- * This class represents a seafood pizza
+ * This class represents a deluxe pizza
  * @author Eric Cheung, Andrea Kim
  */
-public class Seafood extends Pizza{
+public class Deluxe extends Pizza{
 
     /**
-     * Default constructor for seafood pizza
+     * Default constructor for deluxe pizza
      */
-    public Seafood() {
+    public Deluxe() {
         toppings = new ArrayList<>();
-        toppings.add(Topping.SHRIMP);
-        toppings.add(Topping.SQUID);
-        toppings.add(Topping.CRAB);
-        sauce = Sauce.ALFREDO;
+        toppings.add(Topping.SAUSAGE);
+        toppings.add(Topping.PEPPERONI);
+        toppings.add(Topping.GREEN_PEPPER);
+        toppings.add(Topping.ONION);
+        toppings.add(Topping.MUSHROOM);
+        sauce = Sauce.TOMATO;
     }
 
     /**
-     * Method to calculate and return the price of the seafood pizza
-     * @return price of the seafood pizza
+     * Method to calculate and return the price of the deluxe pizza
+     * @return price of the deluxe pizza
      */
     @Override
     public double price() {
-        double price = 17.99;
+        double price = 14.99;
         if(extraCheese){
             price++;
         }
         if(extraSauce){
             price++;
         }
+//        switch (size.getSize()) {
+//            case "Medium" -> price+=2;
+//            case "Large" -> price+=4;
+//        }
+
         switch (size.getSize()) {
-            case "Medium" -> price+=2;
-            case "Large" -> price+=4;
-        };
+            case "Medium":
+                price += 2;
+                break;
+            case "Large":
+                price += 4;
+                break;
+        }
+
         return price;
     }
 
@@ -53,6 +65,6 @@ public class Seafood extends Pizza{
         if(extraCheese){
             extra+=",extra cheese";
         }
-        return "[Seafood] Shrimp,Squid,Crab,"+size.getSize()+","+sauce.getSauce()+extra+" $"+decimal.format(price());
+        return "[Deluxe] Sausage,GreenPepper,Onion,Pepperoni,Mushroom,"+size.getSize()+","+sauce.getSauce()+extra+" $"+decimal.format(price());
     }
 }

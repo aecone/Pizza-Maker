@@ -1,14 +1,14 @@
-package com.pizza.softmeth4;
+package com.pizza.RUPizza;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class Specialty extends AppCompatActivity {
+public class CurrentOrder extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_specialty);
+        setContentView(R.layout.activity_current_order);
     }
 }

@@ -1,4 +1,4 @@
-package com.pizza.softmeth4;
+package com.pizza.RUPizza;
 
 import org.junit.Test;
 

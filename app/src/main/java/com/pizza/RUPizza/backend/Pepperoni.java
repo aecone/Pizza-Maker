@@ -1,33 +1,29 @@
-package com.pizza.softmeth4.backend;
+package com.pizza.RUPizza.backend;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 /**
- * This class represents a deluxe pizza
+ * This class represents a pepperoni pizza
  * @author Eric Cheung, Andrea Kim
  */
-public class Deluxe extends Pizza{
+public class Pepperoni extends Pizza{
 
     /**
-     * Default constructor for deluxe pizza
+     * Default constructor for pepperoni pizza
      */
-    public Deluxe() {
+    public Pepperoni() {
         toppings = new ArrayList<>();
-        toppings.add(Topping.SAUSAGE);
         toppings.add(Topping.PEPPERONI);
-        toppings.add(Topping.GREEN_PEPPER);
-        toppings.add(Topping.ONION);
-        toppings.add(Topping.MUSHROOM);
         sauce = Sauce.TOMATO;
     }
 
     /**
-     * Method to calculate and return the price of the deluxe pizza
-     * @return price of the deluxe pizza
+     * Method to calculate and return the price of the pepperoni pizza
+     * @return price of the pepperoni pizza
      */
     @Override
     public double price() {
-        double price = 14.99;
+        double price = 10.99;
         if(extraCheese){
             price++;
         }
@@ -47,7 +43,6 @@ public class Deluxe extends Pizza{
                 price += 4;
                 break;
         }
-
         return price;
     }
 
@@ -65,6 +60,6 @@ public class Deluxe extends Pizza{
         if(extraCheese){
             extra+=",extra cheese";
         }
-        return "[Deluxe] Sausage,GreenPepper,Onion,Pepperoni,Mushroom,"+size.getSize()+","+sauce.getSauce()+extra+" $"+decimal.format(price());
+        return "[Pepperoni] Pepperoni,"+size.getSize()+","+sauce.getSauce()+extra+" $"+decimal.format(price());
     }
 }

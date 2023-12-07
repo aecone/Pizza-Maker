@@ -1,32 +1,35 @@
-package com.pizza.softmeth4.backend;
+package com.pizza.RUPizza.backend;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 /**
- * This class represents a meatzza pizza
+ * This class represents a supreme pizza
  * @author Eric Cheung, Andrea Kim
  */
-public class Meatzza extends Pizza{
+public class Supreme extends Pizza{
 
     /**
-     * Default constructor for meatzza pizza
+     * Default constructor for supreme pizza
      */
-    public Meatzza() {
+    public Supreme() {
         toppings = new ArrayList<>();
         toppings.add(Topping.SAUSAGE);
         toppings.add(Topping.PEPPERONI);
-        toppings.add(Topping.BEEF);
         toppings.add(Topping.HAM);
+        toppings.add(Topping.GREEN_PEPPER);
+        toppings.add(Topping.ONION);
+        toppings.add(Topping.BLACK_OLIVE);
+        toppings.add(Topping.MUSHROOM);
         sauce = Sauce.TOMATO;
     }
 
     /**
-     * Method to calculate and return the price of the meatzza pizza
-     * @return price of the meatzza pizza
+     * Method to calculate and return the price of the supreme pizza
+     * @return price of the supreme pizza
      */
     @Override
     public double price() {
-        double price = 16.99;
+        double price = 15.99;
         if(extraCheese){
             price++;
         }
@@ -54,7 +57,6 @@ public class Meatzza extends Pizza{
         if(extraCheese){
             extra+=",extra cheese";
         }
-        return "[Meatzza] Sausage,Pepperoni,Beef,Ham,"+size.getSize()+","+sauce.getSauce()+extra+" $"+decimal.format(price());
+        return "[Supreme] Sausage,Pepperoni,Ham,GreenPepper,Onion,BlackOlives,Mushroom."+size.getSize()+","+sauce.getSauce()+extra+" $"+decimal.format(price());
     }
 }
-
