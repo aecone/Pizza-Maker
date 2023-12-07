@@ -1,44 +1,46 @@
-package com.ruPizza.backend;
+package com.pizza.softmeth4.backend;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 /**
- * This class represents a deluxe pizza
+ * This class represents a supreme pizza
  * @author Eric Cheung, Andrea Kim
  */
-public class Deluxe extends Pizza{
+public class Supreme extends Pizza{
 
     /**
-     * Default constructor for deluxe pizza
+     * Default constructor for supreme pizza
      */
-    public Deluxe() {
+    public Supreme() {
         toppings = new ArrayList<>();
         toppings.add(Topping.SAUSAGE);
         toppings.add(Topping.PEPPERONI);
+        toppings.add(Topping.HAM);
         toppings.add(Topping.GREEN_PEPPER);
         toppings.add(Topping.ONION);
+        toppings.add(Topping.BLACK_OLIVE);
         toppings.add(Topping.MUSHROOM);
         sauce = Sauce.TOMATO;
     }
 
     /**
-     * Method to calculate and return the price of the deluxe pizza
-     * @return price of the deluxe pizza
+     * Method to calculate and return the price of the supreme pizza
+     * @return price of the supreme pizza
      */
     @Override
     public double price() {
-        double price = 14.99;
+        double price = 15.99;
         if(extraCheese){
             price++;
         }
         if(extraSauce){
             price++;
         }
-         switch (size.getSize()) {
+        switch (size.getSize()) {
             case "Medium" -> price+=2;
             case "Large" -> price+=4;
         };
-         return price;
+        return price;
     }
 
     /**
@@ -55,6 +57,6 @@ public class Deluxe extends Pizza{
         if(extraCheese){
             extra+=",extra cheese";
         }
-        return "[Deluxe] Sausage,GreenPepper,Onion,Pepperoni,Mushroom,"+size.getSize()+","+sauce.getSauce()+extra+" $"+decimal.format(price());
+        return "[Supreme] Sausage,Pepperoni,Ham,GreenPepper,Onion,BlackOlives,Mushroom."+size.getSize()+","+sauce.getSauce()+extra+" $"+decimal.format(price());
     }
 }

@@ -1,35 +1,31 @@
-package com.ruPizza.backend;
+package com.pizza.softmeth4.backend;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 /**
- * This class represents a supreme pizza
+ * This class represents a seafood pizza
  * @author Eric Cheung, Andrea Kim
  */
-public class Supreme extends Pizza{
+public class Seafood extends Pizza{
 
     /**
-     * Default constructor for supreme pizza
+     * Default constructor for seafood pizza
      */
-    public Supreme() {
+    public Seafood() {
         toppings = new ArrayList<>();
-        toppings.add(Topping.SAUSAGE);
-        toppings.add(Topping.PEPPERONI);
-        toppings.add(Topping.HAM);
-        toppings.add(Topping.GREEN_PEPPER);
-        toppings.add(Topping.ONION);
-        toppings.add(Topping.BLACK_OLIVE);
-        toppings.add(Topping.MUSHROOM);
-        sauce = Sauce.TOMATO;
+        toppings.add(Topping.SHRIMP);
+        toppings.add(Topping.SQUID);
+        toppings.add(Topping.CRAB);
+        sauce = Sauce.ALFREDO;
     }
 
     /**
-     * Method to calculate and return the price of the supreme pizza
-     * @return price of the supreme pizza
+     * Method to calculate and return the price of the seafood pizza
+     * @return price of the seafood pizza
      */
     @Override
     public double price() {
-        double price = 15.99;
+        double price = 17.99;
         if(extraCheese){
             price++;
         }
@@ -57,6 +53,6 @@ public class Supreme extends Pizza{
         if(extraCheese){
             extra+=",extra cheese";
         }
-        return "[Supreme] Sausage,Pepperoni,Ham,GreenPepper,Onion,BlackOlives,Mushroom."+size.getSize()+","+sauce.getSauce()+extra+" $"+decimal.format(price());
+        return "[Seafood] Shrimp,Squid,Crab,"+size.getSize()+","+sauce.getSauce()+extra+" $"+decimal.format(price());
     }
 }

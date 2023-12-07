@@ -1,39 +1,53 @@
-package com.ruPizza.backend;
+package com.pizza.softmeth4.backend;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 /**
- * This class represents a pepperoni pizza
+ * This class represents a deluxe pizza
  * @author Eric Cheung, Andrea Kim
  */
-public class Pepperoni extends Pizza{
+public class Deluxe extends Pizza{
 
     /**
-     * Default constructor for pepperoni pizza
+     * Default constructor for deluxe pizza
      */
-    public Pepperoni() {
+    public Deluxe() {
         toppings = new ArrayList<>();
+        toppings.add(Topping.SAUSAGE);
         toppings.add(Topping.PEPPERONI);
+        toppings.add(Topping.GREEN_PEPPER);
+        toppings.add(Topping.ONION);
+        toppings.add(Topping.MUSHROOM);
         sauce = Sauce.TOMATO;
     }
 
     /**
-     * Method to calculate and return the price of the pepperoni pizza
-     * @return price of the pepperoni pizza
+     * Method to calculate and return the price of the deluxe pizza
+     * @return price of the deluxe pizza
      */
     @Override
     public double price() {
-        double price = 10.99;
+        double price = 14.99;
         if(extraCheese){
             price++;
         }
         if(extraSauce){
             price++;
         }
+//        switch (size.getSize()) {
+//            case "Medium" -> price+=2;
+//            case "Large" -> price+=4;
+//        }
+
         switch (size.getSize()) {
-            case "Medium" -> price+=2;
-            case "Large" -> price+=4;
-        };
+            case "Medium":
+                price += 2;
+                break;
+            case "Large":
+                price += 4;
+                break;
+        }
+
         return price;
     }
 
@@ -51,6 +65,6 @@ public class Pepperoni extends Pizza{
         if(extraCheese){
             extra+=",extra cheese";
         }
-        return "[Pepperoni] Pepperoni,"+size.getSize()+","+sauce.getSauce()+extra+" $"+decimal.format(price());
+        return "[Deluxe] Sausage,GreenPepper,Onion,Pepperoni,Mushroom,"+size.getSize()+","+sauce.getSauce()+extra+" $"+decimal.format(price());
     }
 }

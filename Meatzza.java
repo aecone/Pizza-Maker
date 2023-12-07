@@ -1,31 +1,32 @@
-package com.ruPizza.backend;
+package com.pizza.softmeth4.backend;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 /**
- * This class represents a seafood pizza
+ * This class represents a meatzza pizza
  * @author Eric Cheung, Andrea Kim
  */
-public class Seafood extends Pizza{
+public class Meatzza extends Pizza{
 
     /**
-     * Default constructor for seafood pizza
+     * Default constructor for meatzza pizza
      */
-    public Seafood() {
+    public Meatzza() {
         toppings = new ArrayList<>();
-        toppings.add(Topping.SHRIMP);
-        toppings.add(Topping.SQUID);
-        toppings.add(Topping.CRAB);
-        sauce = Sauce.ALFREDO;
+        toppings.add(Topping.SAUSAGE);
+        toppings.add(Topping.PEPPERONI);
+        toppings.add(Topping.BEEF);
+        toppings.add(Topping.HAM);
+        sauce = Sauce.TOMATO;
     }
 
     /**
-     * Method to calculate and return the price of the seafood pizza
-     * @return price of the seafood pizza
+     * Method to calculate and return the price of the meatzza pizza
+     * @return price of the meatzza pizza
      */
     @Override
     public double price() {
-        double price = 17.99;
+        double price = 16.99;
         if(extraCheese){
             price++;
         }
@@ -53,6 +54,7 @@ public class Seafood extends Pizza{
         if(extraCheese){
             extra+=",extra cheese";
         }
-        return "[Seafood] Shrimp,Squid,Crab,"+size.getSize()+","+sauce.getSauce()+extra+" $"+decimal.format(price());
+        return "[Meatzza] Sausage,Pepperoni,Beef,Ham,"+size.getSize()+","+sauce.getSauce()+extra+" $"+decimal.format(price());
     }
 }
+

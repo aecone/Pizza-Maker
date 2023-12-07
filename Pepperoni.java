@@ -1,42 +1,48 @@
-package com.ruPizza.backend;
+package com.pizza.softmeth4.backend;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 /**
- * This class represents a meatzza pizza
+ * This class represents a pepperoni pizza
  * @author Eric Cheung, Andrea Kim
  */
-public class Meatzza extends Pizza{
+public class Pepperoni extends Pizza{
 
     /**
-     * Default constructor for meatzza pizza
+     * Default constructor for pepperoni pizza
      */
-    public Meatzza() {
+    public Pepperoni() {
         toppings = new ArrayList<>();
-        toppings.add(Topping.SAUSAGE);
         toppings.add(Topping.PEPPERONI);
-        toppings.add(Topping.BEEF);
-        toppings.add(Topping.HAM);
         sauce = Sauce.TOMATO;
     }
 
     /**
-     * Method to calculate and return the price of the meatzza pizza
-     * @return price of the meatzza pizza
+     * Method to calculate and return the price of the pepperoni pizza
+     * @return price of the pepperoni pizza
      */
     @Override
     public double price() {
-        double price = 16.99;
+        double price = 10.99;
         if(extraCheese){
             price++;
         }
         if(extraSauce){
             price++;
         }
+//        switch (size.getSize()) {
+//            case "Medium" -> price+=2;
+//            case "Large" -> price+=4;
+//        }
+
         switch (size.getSize()) {
-            case "Medium" -> price+=2;
-            case "Large" -> price+=4;
-        };
+            case "Medium":
+                price += 2;
+                break;
+            case "Large":
+                price += 4;
+                break;
+        }
         return price;
     }
 
@@ -54,7 +60,6 @@ public class Meatzza extends Pizza{
         if(extraCheese){
             extra+=",extra cheese";
         }
-        return "[Meatzza] Sausage,Pepperoni,Beef,Ham,"+size.getSize()+","+sauce.getSauce()+extra+" $"+decimal.format(price());
+        return "[Pepperoni] Pepperoni,"+size.getSize()+","+sauce.getSauce()+extra+" $"+decimal.format(price());
     }
 }
-

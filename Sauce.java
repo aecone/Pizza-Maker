@@ -1,4 +1,4 @@
-package com.ruPizza.backend;
+package com.pizza.softmeth4.backend;
 
 /**
  * This is the enum class for the sauces of a pizza

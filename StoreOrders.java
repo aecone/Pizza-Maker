@@ -1,4 +1,4 @@
-package com.ruPizza.backend;
+package com.pizza.softmeth4.backend;
 
 import javafx.scene.control.Alert;
 import javafx.stage.FileChooser;
