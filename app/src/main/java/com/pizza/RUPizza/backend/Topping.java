@@ -17,7 +17,13 @@ public enum Topping {
     CRAB("Crab Meat"),
     PINEAPPLE("Pineapple"),
     CHICKEN("Chicken"),
+    SWEET_POTATO("Sweet Potato"),
+    BACON("Bacon"),
+    CORN("Corn"),
+    BASIL("Basil"),
+    MOZZARELLA("Mozzarella"),
     BEEF("Beef");
+
     private final String name;
 
     /**

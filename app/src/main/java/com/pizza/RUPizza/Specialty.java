@@ -8,12 +8,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.pizza.RUPizza.backend.PizzaSingleton;
+
 import java.util.ArrayList;
 
 public class Specialty extends AppCompatActivity {
 
     ArrayList<PizzaModel> pizzaModel = new ArrayList<>();
     int[] pizzaImages = {R.drawable.deluxe, R.drawable.supreme, R.drawable.meatzza, R.drawable.pepperoni, R.drawable.seafood, R.drawable.hawaiian, R.drawable.veggie, R.drawable.margherita, R.drawable.chonky, R.drawable.kim};
+    PizzaSingleton singleton = PizzaSingleton.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
