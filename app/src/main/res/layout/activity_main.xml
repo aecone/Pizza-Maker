@@ -14,7 +14,8 @@
         android:layout_marginBottom="112dp"
         android:text="Store Order"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:onClick="displayStoreOrder"/>
 
     <Button
         android:id="@+id/openCurrentOrder"
@@ -24,7 +25,8 @@
         android:layout_marginBottom="112dp"
         android:text="Current Order"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:onClick="displayCurrentOrder"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -51,7 +53,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.181"
-        app:srcCompat="@drawable/buildyourown" />
+        app:srcCompat="@drawable/buildyourown"
+        android:onClick="displayBuildOwn"/>
 
     <ImageButton
         android:id="@+id/openStoreOrder"
@@ -65,7 +68,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/openBuildOwn"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/storeorder" />
+        app:srcCompat="@drawable/storeorder"
+        android:onClick="displayStoreOrder"/>
 
     <ImageButton
         android:id="@+id/openSpecialty"
@@ -78,7 +82,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.182"
-        app:srcCompat="@drawable/specialty" />
+        app:srcCompat="@drawable/specialty"
+        android:onClick="displaySpecialty"/>
 
     <ImageButton
         android:id="@+id/openCurrentOrder"
@@ -90,7 +95,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.106"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/currentorder" />
+        app:srcCompat="@drawable/currentorder"
+        android:onClick="displayCurrentOrder"/>
 
     <Button
         android:id="@+id/openSpecialty"
@@ -105,7 +111,8 @@
         app:layout_constraintHorizontal_bias="0.126"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.386" />
+        app:layout_constraintVertical_bias="0.386"
+        android:onClick="displaySpecialty"/>
 
     <Button
         android:id="@+id/openBuildOwn"
@@ -120,6 +127,8 @@
         app:layout_constraintHorizontal_bias="0.889"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.386" />
+        app:layout_constraintVertical_bias="0.386"
+        android:onClick="displayBuildOwn"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
