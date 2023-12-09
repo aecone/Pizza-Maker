@@ -1,3 +1,44 @@
 <resources>
     <string name="app_name">RUPizza</string>
+    
+    <string-array name="pizza_type">
+        <item>Deluxe</item>
+        <item>Supreme</item>
+        <item>Meatzza</item>
+        <item>Pepperoni</item>
+        <item>Seafood</item>
+        <item>Hawaiian</item>
+        <item>Veggie</item>
+        <item>Margherita</item>
+        <item>Chonky Cheungers</item>
+        <item>Killer Kim</item>
+
+    </string-array>
+
+    <string-array name="toppings">
+        <item>Sausage, pepperoni, green pepper, onion, mushroom</item>
+        <item>Sausage, pepperoni, ham, green pepper, onion, black olive, mushroom</item>
+        <item>Sausage, pepperoni, beef, ham</item>
+        <item>Pepperoni</item>
+        <item>Shrimp, squid, crab meats</item>
+        <item>Pineapple, ham</item>
+        <item>Green pepper, onion, black olive, mushroom, corn</item>
+        <item>Mozzarella, basil</item>
+        <item>Bacon, chicken, corn, basil, mozzarella, mushroom, green pepper, pepperoni</item>
+        <item>Sweet potato, corn, ham, black olive, green pepper, onion, mushroom</item>
+    </string-array>
+
+    <string-array name="sauces">
+        <item>Sauce: Tomato</item>
+        <item>Sauce: Tomato</item>
+        <item>Sauce: Tomato</item>
+        <item>Sauce: Tomato</item>
+        <item>Sauce: Alfredo</item>
+        <item>Sauce: Tomato</item>
+        <item>Sauce: Tomato</item>
+        <item>Sauce: Tomato</item>
+        <item>Sauce: Alfredo</item>
+        <item>Sauce: Tomato</item>
+    </string-array>
+
 </resources>
