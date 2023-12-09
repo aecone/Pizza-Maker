@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import java.util.ArrayList;
 
@@ -35,5 +37,14 @@ public class Specialty extends AppCompatActivity {
         for(int i=0; i<pizzaNames.length; i++){
             pizzaModel.add(new PizzaModel(pizzaNames[i], toppings[i], sauces[i], pizzaImages[i]));
         }
+    }
+
+    /**
+     * Display the main menu page when button is clicked
+     * @param view the Android View which fired the event.
+     */
+    public void displayMain(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }

@@ -2,6 +2,7 @@ package com.pizza.RUPizza;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -81,5 +82,14 @@ public class StoreOrder extends AppCompatActivity  implements AdapterView.OnItem
     public void showPizzatype(View view) {
         Toast.makeText(this, "Pizza!", Toast.LENGTH_SHORT).show();
         image.setImageResource(R.drawable.seafood); //change the image in the ImageView
+    }
+
+    /**
+     * Display the main menu page when button is clicked
+     * @param view the Android View which fired the event.
+     */
+    public void displayMain(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }
