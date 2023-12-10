@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:onClick="handlePriceChange"
     tools:context=".Specialty">
 
 
@@ -11,6 +12,7 @@
         android:id="@+id/extraSauce"
         android:layout_width="114dp"
         android:layout_height="48dp"
+        android:onClick="handlePriceChange"
         android:text="@string/extra_sauce"
         app:layout_constraintBottom_toTopOf="@+id/price"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,6 +25,7 @@
         android:id="@+id/extraCheese"
         android:layout_width="147dp"
         android:layout_height="48dp"
+        android:onClick="handlePriceChange"
         android:text="@string/extra_cheese"
         app:layout_constraintBottom_toTopOf="@+id/price"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,9 +39,9 @@
         android:layout_width="71dp"
         android:layout_height="31dp"
         android:layout_marginStart="16dp"
+        android:contentDescription="@string/price_label"
         android:text="@string/price_label"
         android:textSize="20sp"
-        android:contentDescription="@string/price_label"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/price"
         app:layout_constraintHorizontal_bias="1.0"
@@ -77,6 +80,7 @@
         android:id="@+id/addButton"
         android:layout_width="121dp"
         android:layout_height="52dp"
+        android:onClick="handleAddToOrder"
         android:text="@string/add_to_order"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -89,9 +93,9 @@
         android:id="@+id/price"
         android:layout_width="189dp"
         android:layout_height="31dp"
+        android:contentDescription="@string/price"
         android:text="@string/price"
         android:textSize="20sp"
-        android:contentDescription="@string/price"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.405"
@@ -125,23 +129,26 @@
         app:layout_constraintVertical_bias="0.083">
 
         <RadioButton
-            android:id="@+id/radioButton1"
+            android:id="@+id/smallButton"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:layout_marginEnd="20dp"
+            android:onClick="handlePriceChange"
             android:text="@string/small" />
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/mediumButton"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:layout_marginEnd="20dp"
+            android:onClick="handlePriceChange"
             android:text="@string/medium" />
 
         <RadioButton
-            android:id="@+id/radioButton3"
+            android:id="@+id/largeButton"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
+            android:onClick="handlePriceChange"
             android:text="@string/large" />
 
     </RadioGroup>
