@@ -41,6 +41,7 @@
         android:layout_marginStart="16dp"
         android:contentDescription="@string/price_label"
         android:text="@string/price_label"
+
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/price"
@@ -53,7 +54,7 @@
         android:id="@+id/cardView"
         android:layout_width="382dp"
         android:layout_height="450dp"
-        app:cardBackgroundColor="#D1D1D1"
+        app:cardBackgroundColor="@color/background"
         app:cardCornerRadius="8dp"
         app:cardElevation="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -84,24 +85,26 @@
         android:text="@string/add_to_order"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.584"
         app:layout_constraintStart_toEndOf="@+id/price"
         app:layout_constraintTop_toBottomOf="@+id/cardView"
         app:layout_constraintVertical_bias="0.965" />
 
     <TextView
         android:id="@+id/price"
-        android:layout_width="189dp"
+        android:layout_width="117dp"
         android:layout_height="31dp"
+        android:background="@color/background"
         android:contentDescription="@string/price"
         android:text="@string/price"
+
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.405"
+        app:layout_constraintHorizontal_bias="0.326"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView"
-        app:layout_constraintVertical_bias="0.885" />
+        app:layout_constraintVertical_bias="0.883" />
 
     <Button
         android:id="@+id/backButton"

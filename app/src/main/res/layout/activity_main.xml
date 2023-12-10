@@ -31,10 +31,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="RU Pizza"
-        android:textColor="#E30C0C"
-        android:textColorHighlight="#E6DCDC"
-        android:textSize="24sp"
+        android:text="RU PIZZA"
+        android:textColor="#BF0323"
+        android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
