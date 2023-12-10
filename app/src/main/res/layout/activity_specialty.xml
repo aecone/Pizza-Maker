@@ -23,12 +23,13 @@
         android:id="@+id/extraCheese"
         android:layout_width="147dp"
         android:layout_height="48dp"
-        android:layout_marginTop="4dp"
         android:text="@string/extra_cheese"
+        app:layout_constraintBottom_toTopOf="@+id/price"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.06"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+        app:layout_constraintVertical_bias="0.375" />
 
     <TextView
         android:id="@+id/textView3"
@@ -37,6 +38,7 @@
         android:layout_marginStart="16dp"
         android:text="@string/price_label"
         android:textSize="20sp"
+        android:contentDescription="@string/price_label"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/price"
         app:layout_constraintHorizontal_bias="1.0"
@@ -81,7 +83,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/price"
         app:layout_constraintTop_toBottomOf="@+id/cardView"
-        app:layout_constraintVertical_bias="0.967" />
+        app:layout_constraintVertical_bias="0.965" />
 
     <TextView
         android:id="@+id/price"
@@ -89,6 +91,7 @@
         android:layout_height="31dp"
         android:text="@string/price"
         android:textSize="20sp"
+        android:contentDescription="@string/price"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.405"
@@ -147,7 +150,7 @@
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Specialty Pizzas"
+        android:text="@string/specialty_pizzas"
         android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/cardView"
         app:layout_constraintEnd_toEndOf="parent"

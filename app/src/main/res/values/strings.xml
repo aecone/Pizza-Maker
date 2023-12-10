@@ -9,6 +9,7 @@
     <string name="extra_sauce">Extra Sauce</string>
     <string name="price_label">Price $</string>
     <string name="price">Price</string>
+    <string name="specialty_pizzas">Specialty Pizzas</string>
 
     <string-array name="pizza_type">
         <item>Deluxe</item>
