@@ -44,7 +44,7 @@
         style="@style/Widget.AppCompat.Spinner"
         android:layout_width="165dp"
         android:layout_height="51dp"
-        android:background="#f0dada"
+        android:background="#d4d4d4"
         android:entries="@array/quantity"
         app:layout_constraintBottom_toTopOf="@+id/tv_item"
         app:layout_constraintEnd_toEndOf="parent"
