@@ -95,7 +95,6 @@ public class BuildOwn extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 selectedToppingPosition = position;
-                System.out.println(selectedToppingPosition);
             }
         });
 
@@ -113,7 +112,6 @@ public class BuildOwn extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 selectedRemoveToppingPosition = position;
-                System.out.println(selectedRemoveToppingPosition);
             }
         });
 
@@ -145,9 +143,6 @@ public class BuildOwn extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 // Get the selected item as a String
                 String selectedSize = (String) sizeType.getSelectedItem();
-
-                // Now you can use the selectedSize string as needed
-                System.out.println("Selected size: " + selectedSize);
 
                 // Update the price when the selected item in sizeType changes
                 updatePrice();
@@ -188,7 +183,6 @@ public class BuildOwn extends AppCompatActivity {
             String selectedTopping = (String) toppingsB.getItemAtPosition(selectedPosition);
 
                 if (pickedToppingsList.size() < MAX_TOPPING) {
-                    System.out.println(selectedTopping+ "has been placed");
                     pickedToppingsList.add(selectedTopping);
                     updatePickedToppingsListView();
                     toppingsList.remove(selectedTopping);
