@@ -2,10 +2,18 @@ package com.pizza.RUPizza;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.pizza.RUPizza.backend.Pizza;
+import com.pizza.RUPizza.backend.PizzaSingleton;
+
+import java.text.DecimalFormat;
 
 /**
  * Demo the LinearLayout and Toast messages.
@@ -14,34 +22,43 @@ import android.widget.Toast;
  * @author Lily Chang
  */
 public class CurrentOrder extends AppCompatActivity {
-    private int count = 0;
-    private TextView tv;
 
+    PizzaSingleton singleton = PizzaSingleton.getInstance();
+    private ListView list;
+    private TextView subtotal, orderTotal, salesTax, orderNumber;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_current_order);
-        tv = findViewById(R.id.textView);
-        tv.setText(String.valueOf(count));
+        list = findViewById(R.id.listView);
+        subtotal = findViewById(R.id.subtotal);
+        orderTotal = findViewById(R.id.orderTotal);
+        salesTax = findViewById(R.id.salesTax);
+        orderNumber = findViewById(R.id.orderNumber);
+        ArrayAdapter<Pizza> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, singleton.getOrder().getAll());
+        list.setAdapter(adapter);
+        DecimalFormat decimal = new DecimalFormat("0.00");
+        subtotal.setText(decimal.format(getTotal()));
+    }
+
+    public double getTotal(){
+        double total=0;
+        if(singleton.getOrder()!=null) {
+            for (int i = 0; i < singleton.getOrder().getAll().size(); i++) {
+                total += singleton.getOrder().getAll().get(i).price();
+            }
+            return total;
+        }
+        return 0;
     }
 
     /**
-     * This is the event handler to display a Toast message.
-     * @param view The Android View that fired the event.
+     * Display the main menu page when button is clicked
+     * @param view the Android View which fired the event.
      */
-    public void displayToast(View view) {
-        //Toast.LENGTH_SHORT --> the message on the screen stays for a shorter period of time.
-        Toast.makeText(this, "Hello CS213", Toast.LENGTH_LONG).show();
+    public void displayMain(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 
-    /**
-     * A simple counter.
-     * Whenever the button get clicked, the count will be increased by one and the value will be
-     * updated on the screen
-     * @param view the Android View that fired the event.
-     */
-    public void displayCount(View view) {
-        count++;
-        tv.setText(String.valueOf(count));
-    }
 }
