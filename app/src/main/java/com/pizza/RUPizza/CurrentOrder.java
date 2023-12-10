@@ -5,11 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.pizza.RUPizza.backend.Order;
 import com.pizza.RUPizza.backend.Pizza;
 import com.pizza.RUPizza.backend.PizzaSingleton;
 
@@ -26,6 +28,7 @@ public class CurrentOrder extends AppCompatActivity {
     PizzaSingleton singleton = PizzaSingleton.getInstance();
     private ListView list;
     private TextView subtotal, orderTotal, salesTax, orderNumber;
+    private int listPosition=-1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +42,31 @@ public class CurrentOrder extends AppCompatActivity {
         list.setAdapter(adapter);
         DecimalFormat decimal = new DecimalFormat("0.00");
         subtotal.setText(decimal.format(getTotal()));
+        salesTax.setText(decimal.format(getTotal()*0.06625));
+        orderTotal.setText(decimal.format(getTotal()+getTotal()*0.06625));
+        orderNumber.setText(singleton.getOrder().getOrderNumber()+"");
+
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+               listPosition = position;
+            }
+        });
     }
+
+    public void handleRemove(View view){
+        if(listPosition!=-1) {
+            singleton.getOrder().getAll().remove(listPosition);
+            ArrayAdapter<Pizza> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, singleton.getOrder().getAll());
+            list.setAdapter(adapter);
+            listPosition=-1;
+        }
+    }
+
+    public void handlePlaceOrder(View view){
+       singleton.addOrderToStore();
+    }
+
 
     public double getTotal(){
         double total=0;
