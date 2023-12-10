@@ -29,26 +29,25 @@
         android:text="@string/extra_cheese"
         app:layout_constraintBottom_toTopOf="@+id/price"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.06"
+        app:layout_constraintHorizontal_bias="0.049"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup"
-        app:layout_constraintVertical_bias="0.375" />
+        app:layout_constraintVertical_bias="0.4" />
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="71dp"
-        android:layout_height="31dp"
-        android:layout_marginStart="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:contentDescription="@string/price_label"
         android:text="@string/price_label"
 
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/price"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.656"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView"
-        app:layout_constraintVertical_bias="0.885" />
+        app:layout_constraintVertical_bias="0.822" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -93,18 +92,17 @@
     <TextView
         android:id="@+id/price"
         android:layout_width="117dp"
-        android:layout_height="31dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="208dp"
         android:background="@color/background"
         android:contentDescription="@string/price"
-        android:text="@string/price"
 
+        android:text="@string/price"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.326"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView"
-        app:layout_constraintVertical_bias="0.883" />
+        app:layout_constraintVertical_bias="0.822" />
 
     <Button
         android:id="@+id/backButton"
