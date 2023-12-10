@@ -2,6 +2,7 @@ package com.pizza.RUPizza;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -307,7 +308,7 @@ public class BuildOwn extends AppCompatActivity {
             showToast("Pizza added to the order!");
         }
     }
-    
+
 
     // Show an alert dialog
     private void showAlert(String title, String message) {
@@ -320,6 +321,11 @@ public class BuildOwn extends AppCompatActivity {
                     }
                 })
                 .show();
+    }
+
+    public void displayMain(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 
 }
