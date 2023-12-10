@@ -49,6 +49,7 @@ public class Specialty extends AppCompatActivity implements RecyclerViewInterfac
         small = findViewById(R.id.smallButton);
         medium = findViewById(R.id.mediumButton);
         large = findViewById(R.id.largeButton);
+        small.setChecked(true);
 
     }
 
@@ -125,7 +126,7 @@ public class Specialty extends AppCompatActivity implements RecyclerViewInterfac
             }
             singleton.addToOrder(pizza);
             price.setText("0.00");
-            small.setChecked(false);
+            small.setChecked(true);
             medium.setChecked(false);
             large.setChecked(false);
             extraCheese.setChecked(false);

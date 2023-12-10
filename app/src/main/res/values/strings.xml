@@ -12,9 +12,9 @@
     <string name="specialty_pizzas">Specialty Pizzas</string>
     <string name="current_order">Current Order</string>
     <string name="order_number">Order Number</string>
-    <string name="subtotal_label">Subtotal:</string>
-    <string name="sales_tax">Sales Tax $:</string>
-    <string name="order_total">Order Total $:</string>
+    <string name="subtotal_label">Subtotal $</string>
+    <string name="sales_tax">Sales Tax $</string>
+    <string name="order_total">Order Total $</string>
     <string name="subtotal">Subtotoal</string>
 
 

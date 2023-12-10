@@ -40,10 +40,7 @@ public class CurrentOrder extends AppCompatActivity {
         orderNumber = findViewById(R.id.orderNumber);
         ArrayAdapter<Pizza> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, singleton.getOrder().getAll());
         list.setAdapter(adapter);
-        DecimalFormat decimal = new DecimalFormat("0.00");
-        subtotal.setText(decimal.format(getTotal()));
-        salesTax.setText(decimal.format(getTotal()*0.06625));
-        orderTotal.setText(decimal.format(getTotal()+getTotal()*0.06625));
+        updatePrice();
         orderNumber.setText(singleton.getOrder().getOrderNumber()+"");
 
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -54,17 +51,26 @@ public class CurrentOrder extends AppCompatActivity {
         });
     }
 
+    public void updatePrice(){
+        DecimalFormat decimal = new DecimalFormat("0.00");
+        subtotal.setText(decimal.format(getTotal()));
+        salesTax.setText(decimal.format(getTotal()*0.06625));
+        orderTotal.setText(decimal.format(getTotal()+getTotal()*0.06625));
+    }
+
     public void handleRemove(View view){
         if(listPosition!=-1) {
             singleton.getOrder().getAll().remove(listPosition);
-            ArrayAdapter<Pizza> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, singleton.getOrder().getAll());
-            list.setAdapter(adapter);
+            ((ArrayAdapter<Pizza>) list.getAdapter()).notifyDataSetChanged();
             listPosition=-1;
+            updatePrice();
         }
     }
 
     public void handlePlaceOrder(View view){
        singleton.addOrderToStore();
+       ((ArrayAdapter<Pizza>) list.getAdapter()).notifyDataSetChanged();
+       updatePrice();
     }
 
 
