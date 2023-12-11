@@ -68,9 +68,13 @@ public class CurrentOrder extends AppCompatActivity {
     }
 
     public void handlePlaceOrder(View view){
-       singleton.addOrderToStore();
-       ((ArrayAdapter<Pizza>) list.getAdapter()).notifyDataSetChanged();
-       updatePrice();
+        if(!singleton.getOrder().getAll().isEmpty()) {
+            singleton.addOrderToStore();
+            ArrayAdapter<Pizza> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, singleton.getOrder().getAll());
+            list.setAdapter(adapter);
+            updatePrice();
+            orderNumber.setText(singleton.getOrder().getOrderNumber() + "");
+        }
     }
 
 

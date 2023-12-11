@@ -16,6 +16,7 @@
     <string name="sales_tax">Sales Tax $</string>
     <string name="order_total">Order Total $</string>
     <string name="subtotal">Subtotoal</string>
+    <string name="toppings">Toppings</string>
 
 
     <string-array name="pizza_type">
