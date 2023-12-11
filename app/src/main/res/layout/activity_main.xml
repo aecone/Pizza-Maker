@@ -7,23 +7,23 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/openStoreOrder"
+        android:id="@+id/openStoreOrder2"
         android:layout_width="158dp"
         android:layout_height="53dp"
         android:layout_marginEnd="28dp"
         android:layout_marginBottom="112dp"
-        android:text="Store Order"
+        android:text="@string/store_order"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:onClick="displayStoreOrder"/>
 
     <Button
-        android:id="@+id/openCurrentOrder"
+        android:id="@+id/openCurrentOrder2"
         android:layout_width="158dp"
         android:layout_height="53dp"
         android:layout_marginStart="32dp"
         android:layout_marginBottom="112dp"
-        android:text="Current Order"
+        android:text="@string/current_order"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:onClick="displayCurrentOrder"/>
@@ -31,7 +31,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="RU PIZZA"
+        android:text="@string/ru_pizza"
         android:textColor="#BF0323"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -42,10 +42,13 @@
         app:layout_constraintVertical_bias="0.044" />
 
     <ImageButton
-        android:id="@+id/openBuildOwn"
+        android:id="@+id/openBuildOwn1"
         android:layout_width="180dp"
         android:layout_height="158dp"
+        android:contentDescription="@string/pic_description4"
         android:scaleType="fitCenter"
+        android:background="@color/background"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.93"
@@ -56,25 +59,30 @@
         android:onClick="displayBuildOwn"/>
 
     <ImageButton
-        android:id="@+id/openStoreOrder"
+        android:id="@+id/openStoreOrder1"
         android:layout_width="176dp"
         android:layout_height="149dp"
         android:layout_marginBottom="168dp"
         android:scaleType="fitCenter"
+        android:contentDescription="@string/pic_description"
+        android:background="@color/background"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.931"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/openBuildOwn"
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/storeorder"
         android:onClick="displayStoreOrder"/>
 
     <ImageButton
-        android:id="@+id/openSpecialty"
+        android:id="@+id/openSpecialty1"
         android:layout_width="163dp"
         android:layout_height="157dp"
         android:scaleType="fitCenter"
+        android:background="@color/background"
+
+        android:contentDescription="@string/pic_description2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.108"
@@ -85,11 +93,15 @@
         android:onClick="displaySpecialty"/>
 
     <ImageButton
-        android:id="@+id/openCurrentOrder"
+        android:id="@+id/openCurrentOrder1"
         android:layout_width="176dp"
         android:layout_height="149dp"
+        android:contentDescription="@string/pic_description3"
+
         android:layout_marginBottom="168dp"
         android:scaleType="fitCenter"
+        android:background="@color/background"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.106"
@@ -98,10 +110,10 @@
         android:onClick="displayCurrentOrder"/>
 
     <Button
-        android:id="@+id/openSpecialty"
+        android:id="@+id/openSpecialty2"
         android:layout_width="158dp"
         android:layout_height="53dp"
-        android:text="Specialty Pizzas"
+        android:text="@string/specialty_pizzas"
         android:textColor="#FFFFFF"
         android:textColorHighlight="#E11010"
         android:textColorLink="#D80707"
@@ -114,10 +126,10 @@
         android:onClick="displaySpecialty"/>
 
     <Button
-        android:id="@+id/openBuildOwn"
+        android:id="@+id/openBuildOwn2"
         android:layout_width="158dp"
         android:layout_height="53dp"
-        android:text="Build Your Own"
+        android:text="@string/build_own"
         android:textColor="#FFFFFF"
         android:textColorHighlight="#E11010"
         android:textColorLink="#D80707"

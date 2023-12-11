@@ -28,6 +28,13 @@
     <string name="tomato">Tomato</string>
     <string name="alfredo">Alfredo</string>
     <string name="pic_description">Pizza Image</string>
+    <string name="pic_description2">Pizza Image2</string>
+    <string name="pic_description3">Pizza Image3</string>
+    <string name="pic_description4">Pizza Image4</string>
+    <string name="ru_pizza">RU PIZZA</string>
+    <string name="build_own">Build Your Own</string>
+    <string name="store_order">Store Order</string>
+    <string name="cancel_order">Cancel Order</string>
 
 
     <string-array name="pizza_type">
