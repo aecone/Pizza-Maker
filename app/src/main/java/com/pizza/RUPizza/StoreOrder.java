@@ -8,80 +8,100 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-public class StoreOrder extends AppCompatActivity  implements AdapterView.OnItemSelectedListener{
-    private ImageView image;
+
+import com.pizza.RUPizza.backend.Order;
+import com.pizza.RUPizza.backend.Pizza;
+import com.pizza.RUPizza.backend.PizzaSingleton;
+
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+
+public class StoreOrder extends AppCompatActivity{
 
     private Spinner spinner;
-    private TextView tv;
-    private String [] names = {"John Doe", "Jane doe", "Susan Brown"};
     private ArrayAdapter<String> adapter;
+    private PizzaSingleton singleton = PizzaSingleton.getInstance();
 
+    private ArrayList<String> orderNumbers = new ArrayList<>();
+    private ListView orderList;
+    private int spinnerPosition;
+    private TextView storeOrderPrice;
 
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_store_order);
-//        image = findViewById(R.id.imageView);
-//    }
-
-        @Override
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_store_order);
-        System.out.println("onCreate");
         spinner = findViewById(R.id.spinner);
-            adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, names);
-
-            spinner.setAdapter(adapter); //dynamically set the adapter that associates with the list of String.
-        tv = findViewById(R.id.tv_item);
-        /*
-         *  Method 1. use an anonymous inner class to implement the OnItemSelectedListener and
-         *            use setOnItemSelectedListener() method to register the listener.
-         *  You use this method if you have more than one Spinner object and need to handle each
-         *  ItemSelected event differently. That is, you need more than one event handler.
-         */
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() { //event handler below
+        orderList = findViewById(R.id.orderList);
+        storeOrderPrice = findViewById(R.id.storeOrderPrice);
+        setOrderNumberList();
+        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, orderNumbers);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                tv.setText(adapterView.getSelectedItem().toString());
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                spinnerPosition = position;
+                setOrderList();
+                updatePrice();
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-                tv.setText("");
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
-        /**
-         * Method 2. set the listener to this, which associates the event handler defined at the bottom.
-         */
-        //spinner.setOnItemSelectedListener(this);
+        if (!singleton.getStore().getAllOrders().isEmpty()) {
+            ArrayAdapter<Pizza> adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, singleton.getStore().getAllOrders().get(0).getAll());
+            orderList.setAdapter(adapter2);
+        }
     }
 
-    /*
-     * Method 2. If you write implements AdapterView.OnItemSelectedListener in the class heading
-     *           you will be enforced to implement the following methods.
-     *           It is fine to leave the onNothingSelected empty without any code.
-     */
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+    public void setOrderList(){
+        ArrayAdapter<Pizza> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, singleton.getStore().getAllOrders().get(spinnerPosition).getAll());
+        orderList.setAdapter(adapter);
+    }
+    public void updatePrice(){
+        double total=0;
+        for(Pizza pizza: singleton.getStore().getAllOrders().get(spinnerPosition).getAll()){
+            total+=pizza.price();
+        }
+        total = total + total*0.06625;
+        DecimalFormat decimal = new DecimalFormat("0.00");
+        storeOrderPrice.setText(decimal.format(total));
 
     }
 
-    //if you don't write anythoing, it'll not do anything.
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-        //empty is fine
+    public void setOrderNumberList(){
+        orderNumbers.clear();
+        if(singleton.getStore()!=null && !singleton.getStore().getAllOrders().isEmpty()){
+            for(Order order:singleton.getStore().getAllOrders()){
+                orderNumbers.add(order.getOrderNumber()+"");
+            }
+            ((ArrayAdapter<String>) spinner.getAdapter()).notifyDataSetChanged();
+        }
     }
-    /**
-     * Button click handler to switch the image in the ImageView
-     * @param view
-     */
-    public void showPizzatype(View view) {
-        Toast.makeText(this, "Pizza!", Toast.LENGTH_SHORT).show();
-        image.setImageResource(R.drawable.seafood); //change the image in the ImageView
+    public void handleCancelOrder(View view){
+        if(!singleton.getStore().getAllOrders().isEmpty()){
+            singleton.getStore().getAllOrders().remove(spinnerPosition);
+        }
+        if(singleton.getStore().getAllOrders().isEmpty()){
+            ArrayList<String> emptyList = new ArrayList<>();
+            ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, emptyList);
+            orderList.setAdapter(adapter);
+            storeOrderPrice.setText("0.00");
+            ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, emptyList);
+            spinner.setAdapter(adapter2);
+        }
+        else {
+            spinnerPosition = 0;
+            setOrderList();
+            updatePrice();
+            setOrderNumberList();
+        }
     }
 
     /**
