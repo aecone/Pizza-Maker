@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:onClick="displayMain"
-        android:text="Back"
+        android:text="@string/back"
         app:layout_constraintBottom_toTopOf="@+id/textView11"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.049"
@@ -54,17 +54,17 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/listView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.093"
+        app:layout_constraintHorizontal_bias="0.091"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11"
-        app:layout_constraintVertical_bias="0.705" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.878" />
 
     <TextView
         android:id="@+id/orderNumber"
-        android:layout_width="34dp"
-        android:layout_height="21dp"
+        android:layout_width="54dp"
+        android:layout_height="35dp"
         android:background="@color/background"
-        android:text="0"
+        android:text="@string/zero"
 
         android:textColor="#000000"
         android:textSize="16sp"
@@ -75,118 +75,126 @@
         app:layout_constraintTop_toBottomOf="@+id/textView11"
         app:layout_constraintVertical_bias="0.705" />
 
+    <Button
+        android:id="@+id/placeOrderButton"
+        android:layout_width="155dp"
+        android:layout_height="50dp"
+        android:onClick="handlePlaceOrder"
+        android:text="@string/place_order"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.843"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.97" />
+
+    <Button
+        android:id="@+id/removeButton"
+        android:layout_width="155dp"
+        android:layout_height="50dp"
+        android:onClick="handleRemove"
+        android:text="@string/remove_pizza"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.107"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.97" />
+
     <TextView
-        android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/salesTax"
+        android:layout_width="64dp"
+        android:layout_height="33dp"
         android:layout_marginTop="12dp"
-        android:text="Subtotal:"
+        android:background="@color/background"
+        android:text="@string/zero_deci"
+
         android:textColor="#000000"
         android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintHorizontal_bias="0.879"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listView" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.852" />
 
     <TextView
         android:id="@+id/textView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:layout_marginEnd="144dp"
-        android:text="Sales Tax $:"
+        android:layout_marginEnd="116dp"
+        android:text="@string/sales_tax"
         android:textColor="#000000"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/textView16"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/listView"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/orderTotal"
+        android:layout_width="59dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/background"
+        android:text="@string/zero_deci"
+
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.345"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.879" />
+
+    <TextView
+        android:id="@+id/subtotal"
+        android:layout_width="59dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="8dp"
+
+        android:background="@color/background"
+        android:text="@string/zero_deci"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/textView15"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView14"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.83" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/subtotal_label"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.085"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.814" />
 
     <TextView
         android:id="@+id/textView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="Order Total $:"
+        android:text="@string/order_total"
         android:textColor="#000000"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.091"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
-
-    <Button
-        android:id="@+id/removeButton"
-        android:layout_width="155dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="28dp"
-        android:onClick="handleRemove"
-        android:text="Remove Pizza"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/orderTotal"
-        app:layout_constraintVertical_bias="0.488" />
-
-    <TextView
-        android:id="@+id/subtotal"
-        android:layout_width="50dp"
-        android:layout_height="22dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-
-        android:background="@color/background"
-        android:text="0.00"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/textView15"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/textView14"
-        app:layout_constraintTop_toBottomOf="@+id/listView" />
-
-    <TextView
-        android:id="@+id/salesTax"
-        android:layout_width="49dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="12dp"
-        android:background="@color/background"
-        android:text="0.00"
-
-        android:textColor="#000000"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView16"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.062"
-        app:layout_constraintStart_toEndOf="@+id/textView15"
-        app:layout_constraintTop_toBottomOf="@+id/listView"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/orderTotal"
-        android:layout_width="53dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        android:background="@color/background"
-        android:text="0.00"
-
-        android:textColor="#000000"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/textView16"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
-
-    <Button
-        android:id="@+id/placeOrderButton"
-        android:layout_width="155dp"
-        android:layout_height="50dp"
-        android:onClick="handlePlaceOrder"
-        android:text="Place Order"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.589"
-        app:layout_constraintStart_toEndOf="@+id/removeButton"
-        app:layout_constraintTop_toBottomOf="@+id/orderTotal"
-        app:layout_constraintVertical_bias="0.488" />
+        app:layout_constraintHorizontal_bias="0.089"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.869" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
