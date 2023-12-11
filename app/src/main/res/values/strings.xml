@@ -25,6 +25,8 @@
     <string name="selected_toppings">Selected</string>
     <string name="add">Add</string>
     <string name="remove">Remove</string>
+    <string name="toppings_top">Toppings: topping, topping, topping</string>
+    <string name="sauce">Sauce</string>
     <string name="tomato">Tomato</string>
     <string name="alfredo">Alfredo</string>
     <string name="pic_description">Pizza Image</string>
@@ -32,6 +34,7 @@
     <string name="pic_description3">Pizza Image3</string>
     <string name="pic_description4">Pizza Image4</string>
     <string name="ru_pizza">RU PIZZA</string>
+    <string name="pizza_type">Pizza Type</string>
     <string name="build_own">Build Your Own</string>
     <string name="store_order">Store Order</string>
     <string name="cancel_order">Cancel Order</string>

@@ -20,15 +20,17 @@
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="486dp"
+            android:layout_height="113dp">
 
             <ImageView
                 android:id="@+id/pizzaImage"
                 android:layout_width="156dp"
                 android:layout_height="100dp"
+                android:contentDescription="@string/pic_description"
                 android:scaleType="centerInside"
                 android:src="@drawable/deluxe"
+
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -38,44 +40,45 @@
 
             <TextView
                 android:id="@+id/pizzaType"
-                android:layout_width="203dp"
-                android:layout_height="24dp"
-                android:text="Pizza Type"
+                android:layout_width="220dp"
+                android:layout_height="32dp"
+                android:text="@string/pizza_type"
                 android:textColor="@color/md_theme_light_onPrimaryContainer"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/toppings"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.245"
-                app:layout_constraintStart_toEndOf="@+id/pizzaImage"
+                app:layout_constraintHorizontal_bias="0.639"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintVertical_bias="0.074" />
 
             <TextView
                 android:id="@+id/toppings"
-                android:layout_width="225dp"
-                android:layout_height="40dp"
-                android:text="Toppings: topping, topping, topping"
+                android:layout_width="214dp"
+                android:layout_height="50dp"
+                android:text="@string/toppings_top"
                 android:textColor="#000000"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.464"
-                app:layout_constraintStart_toEndOf="@+id/pizzaImage"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintHorizontal_bias="0.625"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.555" />
 
             <TextView
                 android:id="@+id/sauce"
-                android:layout_width="178dp"
-                android:layout_height="21dp"
-                android:text="Sauce"
+                android:layout_width="194dp"
+                android:layout_height="28dp"
+                android:text="@string/sauce"
                 android:textColor="#000000"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.173"
+                app:layout_constraintHorizontal_bias="0.11"
                 app:layout_constraintStart_toEndOf="@+id/pizzaImage"
                 app:layout_constraintTop_toBottomOf="@+id/toppings"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintVertical_bias="1.0" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
