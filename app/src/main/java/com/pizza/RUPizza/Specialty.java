@@ -270,33 +270,43 @@ public class Specialty extends AppCompatActivity implements RecyclerViewInterfac
         sum=0;
         this.position = position;
         if (position == DELUXE_POSITION) {
+            Toast.makeText(this, "Deluxe Pizza Selected!", Toast.LENGTH_SHORT).show();
             sum = DELUXE_PRICE;
         }
         if (position == SUPREME_POSITION) {
+            Toast.makeText(this, "Supreme Pizza Selected!", Toast.LENGTH_SHORT).show();
             sum = SUPREME_PRICE;
         }
         if (position == MEATZZA_POSITION) {
+            Toast.makeText(this, "Meatzza Pizza Selected!", Toast.LENGTH_SHORT).show();
             sum = MEATZZA_PRICE;
         }
         if (position == PEPPERONI_POSITION) {
+            Toast.makeText(this, "Pepperoni Pizza Selected!", Toast.LENGTH_SHORT).show();
             sum = PEPPERONI_PRICE;
         }
         if (position == SEAFOOD_POSITION) {
+            Toast.makeText(this, "Seafood Pizza Selected!", Toast.LENGTH_SHORT).show();
             sum = SEAFOOD_PRICE;
         }
         if (position == HAWAIIAN_POSITION) {
+            Toast.makeText(this, "Hawaiian Pizza Selected!", Toast.LENGTH_SHORT).show();
             sum = HAWAIIAN_PRICE;
         }
         if (position == VEGGIE_POSITION) {
+            Toast.makeText(this, "Veggie Pizza Selected!", Toast.LENGTH_SHORT).show();
             sum = VEGGIE_PRICE;
         }
         if (position == MARGHERITA_POSITION) {
+            Toast.makeText(this, "Margherita Pizza Selected!", Toast.LENGTH_SHORT).show();
             sum = MARGHERITA_PRICE;
         }
         if (position == CHONKY_POSITION) {
+            Toast.makeText(this, "Chonky Cheungers Pizza Selected!", Toast.LENGTH_SHORT).show();
             sum = CHONKY_PRICE;
         }
         if (position == KILLER_KIM_POSITION) {
+            Toast.makeText(this, "Killer Kim Pizza Selected!", Toast.LENGTH_SHORT).show();
             sum = KILLER_KIM_PRICE;
         }
 
@@ -314,5 +324,6 @@ public class Specialty extends AppCompatActivity implements RecyclerViewInterfac
         }
         DecimalFormat decimal = new DecimalFormat("0.00");
         price.setText(decimal.format(sum));
+
     }
 }
