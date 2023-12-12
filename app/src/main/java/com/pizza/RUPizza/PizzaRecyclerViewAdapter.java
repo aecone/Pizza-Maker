@@ -54,6 +54,7 @@ public class PizzaRecyclerViewAdapter extends RecyclerView.Adapter<PizzaRecycler
         holder.tvToppings.setText(pizzaModels.get(position).getToppings());
         holder.tvSauce.setText(pizzaModels.get(position).getSauce());
         holder.imageView.setImageResource(pizzaModels.get(position).getImage());
+        holder.basePrice.setText(pizzaModels.get(position).getPrice());
     }
 
     /**
@@ -70,7 +71,7 @@ public class PizzaRecyclerViewAdapter extends RecyclerView.Adapter<PizzaRecycler
      */
     public static class MyViewHolder extends RecyclerView.ViewHolder{
         ImageView imageView;
-        TextView tvName, tvToppings, tvSauce;
+        TextView tvName, tvToppings, tvSauce, basePrice;
 
         /**
          * MyViewHolder constructor
@@ -83,6 +84,7 @@ public class PizzaRecyclerViewAdapter extends RecyclerView.Adapter<PizzaRecycler
             tvName = itemView.findViewById(R.id.pizzaType);
             tvToppings = itemView.findViewById(R.id.toppings);
             tvSauce = itemView.findViewById(R.id.sauce);
+            basePrice = itemView.findViewById(R.id.basePrice);
 
             /**
              * OnClick listener for recycler view

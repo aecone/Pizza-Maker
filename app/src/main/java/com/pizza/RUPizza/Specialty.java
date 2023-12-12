@@ -57,6 +57,8 @@ public class Specialty extends AppCompatActivity implements RecyclerViewInterfac
     private int position=NOT_SELECTED;
     String pizzaType;
 
+    String[] prices = {"$14.99", "$15.99", "$16.99", "$10.99", "$17.99", "$10.99", "$9.99", "$11.99", "$19.99", "$19.99"};
+
     /**
      * Method that initializes components of the Activity
      * @param savedInstanceState If the activity is being re-initialized after
@@ -95,7 +97,7 @@ public class Specialty extends AppCompatActivity implements RecyclerViewInterfac
         String[] sauces = getResources().getStringArray(R.array.sauces);
 
         for(int i=0; i<pizzaNames.length; i++){
-            pizzaModel.add(new PizzaModel(pizzaNames[i], toppings[i], sauces[i], pizzaImages[i]));
+            pizzaModel.add(new PizzaModel(pizzaNames[i], toppings[i], sauces[i], pizzaImages[i], prices[i]));
         }
     }
 

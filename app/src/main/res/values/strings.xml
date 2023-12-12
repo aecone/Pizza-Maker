@@ -37,6 +37,7 @@
     <string name="build_own">Build Your Own</string>
     <string name="store_order">Store Order</string>
     <string name="cancel_order">Cancel Order</string>
+    <string name="base_price">Base Price: $19.99</string>
 
 
     <string-array name="pizza_type">

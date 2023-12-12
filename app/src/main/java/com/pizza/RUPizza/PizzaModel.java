@@ -8,6 +8,7 @@ public class PizzaModel {
     String pizzaType;
     String toppings;
     String sauce;
+    String price;
     int image;
 
 
@@ -18,11 +19,12 @@ public class PizzaModel {
      * @param sauce sauce of the pizza
      * @param image image of the pizza
      */
-    public PizzaModel(String pizzaType, String toppings, String sauce, int image) {
+    public PizzaModel(String pizzaType, String toppings, String sauce, int image, String price) {
         this.pizzaType = pizzaType;
         this.toppings = toppings;
         this.sauce = sauce;
         this.image = image;
+        this.price = price;
     }
 
     /**
@@ -55,5 +57,13 @@ public class PizzaModel {
      */
     public int getImage() {
         return image;
+    }
+
+    /**
+     * Getter method for base price of pizza
+     * @return base price of pizza
+     */
+    public String getPrice(){
+        return price;
     }
 }
