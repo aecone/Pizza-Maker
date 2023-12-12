@@ -28,8 +28,16 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * This class represents the activity for building custom pizzas.
+ * Users can add toppings, choose sauce options, and customize pizza size.
+ * The activity communicates with the PizzaSingleton for data sharing.
+ *
+ * @author Andrea Kim, Eric Cheung
+ */
 public class BuildOwn extends AppCompatActivity {
 
+    // Constants for pizza pricing and topping limits
     private static final int MIN_TOPPING = 3;
     private static final int MAX_TOPPING = 7;
     private static final double SMALL_PRICE = 8.99;
@@ -37,6 +45,7 @@ public class BuildOwn extends AppCompatActivity {
     private static final double MED_PRICE = 2.00;
     private static final double LARGE_PRICE = 4.00;
 
+    // UI components
     private Button addOrderB;
     private Button addTopping;
     private RadioButton tomatoSauceB;
@@ -53,6 +62,7 @@ public class BuildOwn extends AppCompatActivity {
     private int selectedToppingPosition = AdapterView.INVALID_POSITION;
     private int selectedRemoveToppingPosition = AdapterView.INVALID_POSITION;
 
+    // Data lists and adapters
     private List<String> pickedToppingsList;
     private List<String> toppingsList;
     ArrayAdapter<String> toppingsAdapter;
@@ -60,6 +70,14 @@ public class BuildOwn extends AppCompatActivity {
     private ArrayAdapter<String> pickedToppingsAdapter;
     private PizzaSingleton pizzaSingleton;
 
+
+    /**
+     * This method initializes the user interface components, sets up event listeners,
+     * and prepares the initial state of the BuildOwn activity.
+     *
+     * @param savedInstanceState A Bundle containing the activity's previously saved state,
+     *                                or null if there is no saved state.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -98,7 +116,6 @@ public class BuildOwn extends AppCompatActivity {
             }
         });
 
-
         addTopping.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -106,7 +123,6 @@ public class BuildOwn extends AppCompatActivity {
                 addToppings(selectedToppingPosition);
             }
         });
-
 
         pickedToppingsB.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -155,8 +171,10 @@ public class BuildOwn extends AppCompatActivity {
         });
     }
 
+    /**
+     * Initializes the toppings list and image view.
+     */
     private void initializeToppingsAndImage() {
-        // TODO: Implement logic to initialize toppings and set image
         toppingsList = new ArrayList<>(Arrays.asList(
                 "Sausage", "Pepperoni", "Green Pepper", "Onion", "Mushroom", "Ham",
                 "Black Olive", "Shrimp", "Squid", "Crab Meat", "Pineapple", "Chicken",
@@ -177,28 +195,40 @@ public class BuildOwn extends AppCompatActivity {
         pickedToppingsB.setAdapter(pickedToppingsAdapter);
     }
 
-    // Method to handle adding toppings
+    /**
+     * Handles the logic for adding toppings to the pizza.
+     * If a topping is selected, adds it to the picked toppings list, updates UI, and recalculates the price.
+     * Shows an alert if the maximum topping limit is reached.
+     *
+     * @param selectedPosition The position of the selected topping in the list.
+     */
     private void addToppings(int selectedPosition) {
         if (selectedPosition != AdapterView.INVALID_POSITION) {
             String selectedTopping = (String) toppingsB.getItemAtPosition(selectedPosition);
 
-                if (pickedToppingsList.size() < MAX_TOPPING) {
-
-                    selectedToppingPosition = AdapterView.INVALID_POSITION;
-                    pickedToppingsList.add(selectedTopping);
-                    updatePickedToppingsListView();
-                    toppingsList.remove(selectedTopping);
-                    updateOriginalToppingsListView();
-                    updatePrice();
-                } else {
-                    showAlert("Maximum number of toppings", "At most 7 toppings!");
-                }
+            if (pickedToppingsList.size() < MAX_TOPPING) {
+                selectedToppingPosition = AdapterView.INVALID_POSITION;
+                pickedToppingsList.add(selectedTopping);
+                updatePickedToppingsListView();
+                toppingsList.remove(selectedTopping);
+                updateOriginalToppingsListView();
+                updatePrice();
+            } else {
+                showAlert("Maximum number of toppings", "At most 7 toppings!");
+            }
         } else {
             showAlert("No topping selected", "Please select a topping.");
         }
     }
 
-    private void removeToppings(int selectedRemovePosition ) {
+    /**
+     * Handles the logic for removing toppings from the pizza.
+     * If a topping is selected, removes it from the picked toppings list, updates UI, and recalculates the price.
+     * Shows an alert if no topping is selected.
+     *
+     * @param selectedRemovePosition The position of the selected topping in the picked toppings list.
+     */
+    private void removeToppings(int selectedRemovePosition) {
         if (pickedToppingsList.isEmpty() || selectedRemovePosition == AdapterView.INVALID_POSITION) {
             showAlert("No topping selected", "Please select a topping.");
             return;
@@ -213,22 +243,28 @@ public class BuildOwn extends AppCompatActivity {
             toppingsList.add(selectedTopping);
             updateOriginalToppingsListView();
             updatePrice();
-
         }
     }
 
-    // Update the ListView showing picked toppings
+    /**
+     * Update the ListView showing picked toppings.
+     */
     private void updatePickedToppingsListView() {
         ArrayAdapter<String> pickedToppingsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, pickedToppingsList);
         pickedToppingsB.setAdapter(pickedToppingsAdapter);
     }
 
-    // Update the ListView showing original toppings
+    /**
+     * Update the ListView showing original toppings.
+     */
     private void updateOriginalToppingsListView() {
         ArrayAdapter<String> toppingsAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, toppingsList);
         toppingsB.setAdapter(toppingsAdapter);
     }
 
+    /**
+     * Update the displayed price based on selected options.
+     */
     private void updatePrice() {
         double price = SMALL_PRICE;
         DecimalFormat decimal = new DecimalFormat("0.00");
@@ -255,17 +291,24 @@ public class BuildOwn extends AppCompatActivity {
         priceB.setText(decimal.format(price));
     }
 
+    /**
+     * Display a toast message.
+     *
+     * @param message The message to display.
+     */
     private void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
+    /**
+     * Reset UI components to their initial state.
+     */
     private void resetUI() {
         sizeType.setSelection(0);
         tomatoSauceB.setChecked(true);
         extraCheeseB.setChecked(false);
         extraSauceB.setChecked(false);
         priceB.setText("8.99");
-        // Assuming toppingsList is a List<String>
         toppingsAdapter.clear();
         toppingsAdapter.addAll("Sausage", "Pepperoni", "Green Pepper", "Onion", "Mushroom", "Ham", "Black Olive", "Shrimp", "Squid", "Crab Meat", "Pineapple", "Chicken", "Beef");
         toppingsB.setAdapter(toppingsAdapter);
@@ -274,6 +317,11 @@ public class BuildOwn extends AppCompatActivity {
         pickedToppingsB.setAdapter(pickedToppingsAdapter);
     }
 
+    /**
+     * Handles the logic for adding a pizza to the order.
+     * Creates a Pizza object with selected options and adds it to the PizzaSingleton.
+     * Resets UI components after adding the pizza.
+     */
     private void setAddOrderB() {
         if (pickedToppingsList.size() < MIN_TOPPING) {
             showToast("Need at least 3 toppings. Please select at least 3 toppings.");
@@ -306,8 +354,12 @@ public class BuildOwn extends AppCompatActivity {
         }
     }
 
-
-    // Show an alert dialog
+    /**
+     * Show an alert dialog with the given title and message.
+     *
+     * @param title   The title of the alert.
+     * @param message The message to display in the alert.
+     */
     private void showAlert(String title, String message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(title)
@@ -320,9 +372,13 @@ public class BuildOwn extends AppCompatActivity {
                 .show();
     }
 
+    /**
+     * Navigate to the main activity.
+     *
+     * @param view The current view.
+     */
     public void displayMain(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
-
 }

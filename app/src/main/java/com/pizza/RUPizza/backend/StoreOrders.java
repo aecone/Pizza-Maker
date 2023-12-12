@@ -47,32 +47,4 @@ public class StoreOrders {
         nextOrderNumber++;
     }
 
-//    /**
-//     * Method to export all the orders in a text file
-//     * @throws IOException Exception if the text file could not be exported
-//     */
-//    public void export() throws IOException {
-//        FileChooser fileChooser = new FileChooser();
-//        fileChooser.setTitle("Save File");
-//        fileChooser.setInitialFileName("StoreOrder.txt");
-//        File file = fileChooser.showSaveDialog(null);
-//        if( file != null){
-//            try(FileWriter writer = new FileWriter(file)) {
-//                for (Order n : orders) {
-//                    writer.write("Order #"+n.getOrderNumber()+":\n");
-//                    for (Pizza pizza : n.getAll()) {
-//                        writer.write(pizza.toString()+"\n");
-//                    }
-//                    writer.write("\n");
-//                }
-//            }
-//            catch(IOException e){
-//                Alert alert = new Alert(Alert.AlertType.ERROR);
-//                alert.setTitle("ERROR");
-//                alert.setHeaderText("Exporting Store Orders");
-//                alert.setContentText("Couldn't export store orders");
-//                alert.showAndWait();
-//            }
-//        }
-//    }
 }
