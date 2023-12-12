@@ -93,6 +93,7 @@ public class CurrentOrder extends AppCompatActivity {
             updatePrice();
             orderNumber.setText(singleton.getOrder().getOrderNumber() + "");
             Toast.makeText(this, "Order Placed!", Toast.LENGTH_SHORT).show();
+            listPosition=NOT_SELECTED;
         }
         else{
             showAlert("No Pizzas in Order", "Please add a pizza to the order.");
