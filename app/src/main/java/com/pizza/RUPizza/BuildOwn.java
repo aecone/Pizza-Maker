@@ -183,6 +183,8 @@ public class BuildOwn extends AppCompatActivity {
             String selectedTopping = (String) toppingsB.getItemAtPosition(selectedPosition);
 
                 if (pickedToppingsList.size() < MAX_TOPPING) {
+
+                    selectedToppingPosition = AdapterView.INVALID_POSITION;
                     pickedToppingsList.add(selectedTopping);
                     updatePickedToppingsListView();
                     toppingsList.remove(selectedTopping);
@@ -205,6 +207,7 @@ public class BuildOwn extends AppCompatActivity {
         String selectedTopping = (String) pickedToppingsB.getItemAtPosition(selectedRemovePosition);
 
         if (selectedTopping != null) {
+            selectedRemoveToppingPosition = AdapterView.INVALID_POSITION;
             pickedToppingsList.remove(selectedTopping);
             updatePickedToppingsListView();
             toppingsList.add(selectedTopping);
