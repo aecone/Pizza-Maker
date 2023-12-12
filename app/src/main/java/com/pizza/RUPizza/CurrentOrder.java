@@ -20,10 +20,8 @@ import com.pizza.RUPizza.backend.PizzaSingleton;
 import java.text.DecimalFormat;
 
 /**
- * Demo the LinearLayout and Toast messages.
- * When you create an Android project, by default the root of the component tree is a ConstrainLayout.
- * You can right click on the ConstrainLayout and select Convert View to other layout.
- * @author Lily Chang
+ * This is the current order class to give functionality to the current order activity
+ * @author Eric Cheung, Andrea Kim
  */
 public class CurrentOrder extends AppCompatActivity {
     private static final int NOT_SELECTED = -1;
@@ -32,6 +30,14 @@ public class CurrentOrder extends AppCompatActivity {
     private ListView list;
     private TextView subtotal, orderTotal, salesTax, orderNumber;
     private int listPosition=NOT_SELECTED;
+
+    /**
+     * Method that initializes components of the Activity
+     * @param savedInstanceState If the activity is being re-initialized after
+     *     previously being shut down then this Bundle contains the data it most
+     *     recently supplied in {@link #onSaveInstanceState}.  <b><i>Note: Otherwise it is null.</i></b>
+     *
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +60,9 @@ public class CurrentOrder extends AppCompatActivity {
         });
     }
 
+    /**
+     * Updates price on activity
+     */
     public void updatePrice(){
         DecimalFormat decimal = new DecimalFormat("0.00");
         subtotal.setText(decimal.format(getTotal()));
@@ -61,6 +70,11 @@ public class CurrentOrder extends AppCompatActivity {
         orderTotal.setText(decimal.format(getTotal()+getTotal()*0.06625));
     }
 
+    /**
+     * Method to show alert
+     * @param title title of alert
+     * @param message message of alert
+     */
     private void showAlert(String title, String message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(title)
@@ -72,6 +86,11 @@ public class CurrentOrder extends AppCompatActivity {
                 })
                 .show();
     }
+
+    /**
+     * Method to handle when remove button is clicked
+     * @param view button view
+     */
     public void handleRemove(View view){
         if(listPosition!=NOT_SELECTED) {
             singleton.getOrder().getAll().remove(listPosition);
@@ -85,6 +104,10 @@ public class CurrentOrder extends AppCompatActivity {
         }
     }
 
+    /**
+     * Method to handle when place order button is clicked
+     * @param view button view
+     */
     public void handlePlaceOrder(View view){
         if(!singleton.getOrder().getAll().isEmpty()) {
             singleton.addOrderToStore();
@@ -101,6 +124,10 @@ public class CurrentOrder extends AppCompatActivity {
     }
 
 
+    /**
+     * Method to get total price of pizzas
+     * @return total price of pizzas
+     */
     public double getTotal(){
         double total=0;
         if(singleton.getOrder()!=null) {

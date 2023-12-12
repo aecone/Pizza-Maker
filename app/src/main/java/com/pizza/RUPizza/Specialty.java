@@ -20,10 +20,34 @@ import com.pizza.RUPizza.backend.PizzaSingleton;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
+/**
+ * This is the specialty class to give functionality to the specialty activity
+ * @author Eric Cheung, Andrea Kim
+ */
 public class Specialty extends AppCompatActivity implements RecyclerViewInterface{
 
     ArrayList<PizzaModel> pizzaModel = new ArrayList<>();
     private static final int NOT_SELECTED = -1;
+    private static final int DELUXE_POSITION = 0;
+    private static final int SUPREME_POSITION = 1;
+    private static final int MEATZZA_POSITION = 2;
+    private static final int PEPPERONI_POSITION = 3;
+    private static final int SEAFOOD_POSITION = 4;
+    private static final int HAWAIIAN_POSITION = 5;
+    private static final int VEGGIE_POSITION = 6;
+    private static final int MARGHERITA_POSITION = 7;
+    private static final int CHONKY_POSITION = 8;
+    private static final int KILLER_KIM_POSITION = 9;
+    final double DELUXE_PRICE = 14.99;
+    final double SUPREME_PRICE = 15.99;
+    final double MEATZZA_PRICE = 16.99;
+    final double PEPPERONI_PRICE = 10.99;
+    final double SEAFOOD_PRICE = 17.99;
+    final double HAWAIIAN_PRICE = 10.99;
+    final double VEGGIE_PRICE = 9.99;
+    final double MARGHERITA_PRICE = 11.99;
+    final double CHONKY_PRICE = 19.99;
+    final double KILLER_KIM_PRICE = 19.99;
     int[] pizzaImages = {R.drawable.deluxe, R.drawable.supreme, R.drawable.meatzza, R.drawable.pepperoni, R.drawable.seafood, R.drawable.hawaiian, R.drawable.veggie, R.drawable.margherita, R.drawable.chonky, R.drawable.kim};
     PizzaSingleton singleton = PizzaSingleton.getInstance();
     private TextView price;
@@ -33,6 +57,13 @@ public class Specialty extends AppCompatActivity implements RecyclerViewInterfac
     private int position=NOT_SELECTED;
     String pizzaType;
 
+    /**
+     * Method that initializes components of the Activity
+     * @param savedInstanceState If the activity is being re-initialized after
+     *     previously being shut down then this Bundle contains the data it most
+     *     recently supplied in {@link #onSaveInstanceState}.  <b><i>Note: Otherwise it is null.</i></b>
+     *
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +86,9 @@ public class Specialty extends AppCompatActivity implements RecyclerViewInterfac
 
     }
 
+    /**
+     * Method to set up the pizza models for the recycler view
+     */
     private void setUpPizzaModels(){
         String[] pizzaNames = getResources().getStringArray(R.array.pizza_type);
         String[] toppings = getResources().getStringArray(R.array.toppings);
@@ -75,39 +109,52 @@ public class Specialty extends AppCompatActivity implements RecyclerViewInterfac
         startActivity(intent);
     }
 
+    /**
+     * Method to get pizza type that was selected
+     */
     public void getPizzaType(){
-        if(position==0){
-            pizzaType="Deluxe";
-        }
-        if(position==1){
-            pizzaType="Supreme";
-        }
-        if(position==2){
-            pizzaType="Meatzza";
-        }
-        if(position==3){
-            pizzaType="Pepperoni";
-        }
-        if(position==4){
-            pizzaType="Seafood";
-        }
-        if(position==5){
-            pizzaType="Hawaiian";
-        }
-        if(position==6){
-            pizzaType="Veggie";
-        }
-        if(position==7){
-            pizzaType="Margherita";
-        }
-        if(position==8){
-            pizzaType="Chonky Cheungers";
-        }
-        if(position==9){
-            pizzaType="Killer Kim";
+        switch (position) {
+            case DELUXE_POSITION:
+                pizzaType = "Deluxe";
+                break;
+            case SUPREME_POSITION:
+                pizzaType = "Supreme";
+                break;
+            case MEATZZA_POSITION:
+                pizzaType = "Meatzza";
+                break;
+            case PEPPERONI_POSITION:
+                pizzaType = "Pepperoni";
+                break;
+            case SEAFOOD_POSITION:
+                pizzaType = "Seafood";
+                break;
+            case HAWAIIAN_POSITION:
+                pizzaType = "Hawaiian";
+                break;
+            case VEGGIE_POSITION:
+                pizzaType = "Veggie";
+                break;
+            case MARGHERITA_POSITION:
+                pizzaType = "Margherita";
+                break;
+            case CHONKY_POSITION:
+                pizzaType = "Chonky Cheungers";
+                break;
+            case KILLER_KIM_POSITION:
+                pizzaType = "Killer Kim";
+                break;
+            default:
+                pizzaType = null;
+                break;
         }
     }
 
+    /**
+     * Method to show an alert
+     * @param title title of alert
+     * @param message message of alert
+     */
     private void showAlert(String title, String message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(title)
@@ -119,6 +166,11 @@ public class Specialty extends AppCompatActivity implements RecyclerViewInterfac
                 })
                 .show();
     }
+
+    /**
+     * Method to handle when add to order button is clicked
+     * @param view button view
+     */
     public void handleAddToOrder(View view){
         if(position!=NOT_SELECTED) {
             getPizzaType();
@@ -154,39 +206,42 @@ public class Specialty extends AppCompatActivity implements RecyclerViewInterfac
     }
 
 
-
+    /**
+     * Method to handle when the price is changed
+     * @param view button or checkbox view
+     */
     public void handlePriceChange(View view){
-        if(position!=NOT_SELECTED) {
-            if (position == 0) {
-                sum = 14.99;
-            }
-            if (position == 1) {
-                sum = 15.99;
-            }
-            if (position == 2) {
-                sum = 16.99;
-            }
-            if (position == 3) {
-                sum = 10.99;
-            }
-            if (position == 4) {
-                sum = 17.99;
-            }
-            if (position == 5) {
-                sum = 10.99;
-            }
-            if (position == 6) {
-                sum = 9.99;
-            }
-            if (position == 7) {
-                sum = 11.99;
-            }
-            if (position == 8) {
-                sum = 19.99;
-            }
-            if (position == 9) {
-                sum = 19.99;
-            }
+
+        if (position == DELUXE_POSITION) {
+            sum = DELUXE_PRICE;
+        }
+        if (position == SUPREME_POSITION) {
+            sum = SUPREME_PRICE;
+        }
+        if (position == MEATZZA_POSITION) {
+            sum = MEATZZA_PRICE;
+        }
+        if (position == PEPPERONI_POSITION) {
+            sum = PEPPERONI_PRICE;
+        }
+        if (position == SEAFOOD_POSITION) {
+            sum = SEAFOOD_PRICE;
+        }
+        if (position == HAWAIIAN_POSITION) {
+            sum = HAWAIIAN_PRICE;
+        }
+        if (position == VEGGIE_POSITION) {
+            sum = VEGGIE_PRICE;
+        }
+        if (position == MARGHERITA_POSITION) {
+            sum = MARGHERITA_PRICE;
+        }
+        if (position == CHONKY_POSITION) {
+            sum = CHONKY_PRICE;
+        }
+        if (position == KILLER_KIM_POSITION) {
+            sum = KILLER_KIM_PRICE;
+        }
             if (extraCheese.isChecked()) {
                 sum++;
             }
@@ -203,53 +258,57 @@ public class Specialty extends AppCompatActivity implements RecyclerViewInterfac
             price.setText(decimal.format(sum));
         }
 
-    }
 
+    /**
+     * Method to handle when an item is clicked from the recycler view
+     * @param position position of the item that was clicked
+     */
     @Override
     public void onItemClick(int position) {
         sum=0;
         this.position = position;
-        if(position==0){
-            sum=14.99;
+        if (position == DELUXE_POSITION) {
+            sum = DELUXE_PRICE;
         }
-        if(position==1){
-            sum=15.99;
+        if (position == SUPREME_POSITION) {
+            sum = SUPREME_PRICE;
         }
-        if(position==2){
-            sum=16.99;
+        if (position == MEATZZA_POSITION) {
+            sum = MEATZZA_PRICE;
         }
-        if(position==3){
-            sum=10.99;
+        if (position == PEPPERONI_POSITION) {
+            sum = PEPPERONI_PRICE;
         }
-        if(position==4){
-            sum=17.99;
+        if (position == SEAFOOD_POSITION) {
+            sum = SEAFOOD_PRICE;
         }
-        if(position==5){
-            sum=10.99;
+        if (position == HAWAIIAN_POSITION) {
+            sum = HAWAIIAN_PRICE;
         }
-        if(position==6){
-            sum=9.99;
+        if (position == VEGGIE_POSITION) {
+            sum = VEGGIE_PRICE;
         }
-        if(position==7){
-            sum=11.99;
+        if (position == MARGHERITA_POSITION) {
+            sum = MARGHERITA_PRICE;
         }
-        if(position==8){
-            sum=19.99;
+        if (position == CHONKY_POSITION) {
+            sum = CHONKY_PRICE;
         }
-        if(position==9){
-            sum=19.99;
+        if (position == KILLER_KIM_POSITION) {
+            sum = KILLER_KIM_PRICE;
         }
-        if(extraCheese.isChecked()){
+
+        if (extraCheese.isChecked()) {
             sum++;
         }
-        if(extraSauce.isChecked()){
+        if (extraSauce.isChecked()) {
             sum++;
         }
-        if(medium.isChecked()){
-            sum+=2;
+        if (medium.isChecked()) {
+            sum += 2;
         }
-        if(large.isChecked()){
-            sum+=4;
+        if (large.isChecked()) {
+            sum += 4;
         }
         DecimalFormat decimal = new DecimalFormat("0.00");
         price.setText(decimal.format(sum));
