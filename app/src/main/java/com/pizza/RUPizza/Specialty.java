@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -105,6 +107,18 @@ public class Specialty extends AppCompatActivity implements RecyclerViewInterfac
             pizzaType="Killer Kim";
         }
     }
+
+    private void showAlert(String title, String message) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(title)
+                .setMessage(message)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Dismiss the dialog
+                    }
+                })
+                .show();
+    }
     public void handleAddToOrder(View view){
         if(position!=-1) {
             getPizzaType();
@@ -134,7 +148,12 @@ public class Specialty extends AppCompatActivity implements RecyclerViewInterfac
             position = -1;
             Toast.makeText(this, "Pizza Added to Order!", Toast.LENGTH_SHORT).show();
         }
+        else{
+            showAlert("No Pizza Type Selected", "Please select a pizza type.");
+        }
     }
+
+
 
     public void handlePriceChange(View view){
         if(position!=-1) {

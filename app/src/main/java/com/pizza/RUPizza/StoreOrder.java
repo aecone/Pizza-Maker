@@ -87,6 +87,7 @@ public class StoreOrder extends AppCompatActivity{
     public void handleCancelOrder(View view){
         if(!singleton.getStore().getAllOrders().isEmpty()){
             singleton.getStore().getAllOrders().remove(spinnerPosition);
+            Toast.makeText(this, "Order Cancelled!", Toast.LENGTH_SHORT).show();
         }
         if(singleton.getStore().getAllOrders().isEmpty()){
             ArrayList<String> emptyList = new ArrayList<>();

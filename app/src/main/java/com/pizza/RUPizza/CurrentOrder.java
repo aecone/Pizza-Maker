@@ -2,6 +2,8 @@ package com.pizza.RUPizza;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -58,12 +60,27 @@ public class CurrentOrder extends AppCompatActivity {
         orderTotal.setText(decimal.format(getTotal()+getTotal()*0.06625));
     }
 
+    private void showAlert(String title, String message) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(title)
+                .setMessage(message)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Dismiss the dialog
+                    }
+                })
+                .show();
+    }
     public void handleRemove(View view){
         if(listPosition!=-1) {
             singleton.getOrder().getAll().remove(listPosition);
             ((ArrayAdapter<Pizza>) list.getAdapter()).notifyDataSetChanged();
             listPosition=-1;
             updatePrice();
+            Toast.makeText(this, "Pizza Removed!", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            showAlert("No Pizza Selected", "Please select a pizza.");
         }
     }
 
@@ -74,6 +91,10 @@ public class CurrentOrder extends AppCompatActivity {
             list.setAdapter(adapter);
             updatePrice();
             orderNumber.setText(singleton.getOrder().getOrderNumber() + "");
+            Toast.makeText(this, "Order Placed!", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            showAlert("No Pizzas in Order", "Please add a pizza to the order.");
         }
     }
 

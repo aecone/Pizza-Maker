@@ -94,9 +94,9 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="208dp"
         android:background="@color/background"
-        android:contentDescription="@string/price"
+        android:contentDescription="@string/zero_deci"
 
-        android:text="@string/price"
+        android:text="@string/zero_deci"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
