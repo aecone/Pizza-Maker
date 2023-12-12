@@ -57,7 +57,7 @@ public class Specialty extends AppCompatActivity implements RecyclerViewInterfac
     private int position=NOT_SELECTED;
     String pizzaType;
 
-    String[] prices = {"$14.99", "$15.99", "$16.99", "$10.99", "$17.99", "$10.99", "$9.99", "$11.99", "$19.99", "$19.99"};
+    String[] prices = {"Base Price:$14.99", "Base Price:$15.99", "Base Price:$16.99", "Base Price:$10.99", "Base Price:$17.99", "Base Price:$10.99", "Base Price:$9.99", "Base Price:$11.99", "Base Price:$19.99", "Base Price:$19.99"};
 
     /**
      * Method that initializes components of the Activity
