@@ -26,11 +26,12 @@ import java.text.DecimalFormat;
  * @author Lily Chang
  */
 public class CurrentOrder extends AppCompatActivity {
+    private static final int NOT_SELECTED = -1;
 
     PizzaSingleton singleton = PizzaSingleton.getInstance();
     private ListView list;
     private TextView subtotal, orderTotal, salesTax, orderNumber;
-    private int listPosition=-1;
+    private int listPosition=NOT_SELECTED;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,10 +73,10 @@ public class CurrentOrder extends AppCompatActivity {
                 .show();
     }
     public void handleRemove(View view){
-        if(listPosition!=-1) {
+        if(listPosition!=NOT_SELECTED) {
             singleton.getOrder().getAll().remove(listPosition);
             ((ArrayAdapter<Pizza>) list.getAdapter()).notifyDataSetChanged();
-            listPosition=-1;
+            listPosition=NOT_SELECTED;
             updatePrice();
             Toast.makeText(this, "Pizza Removed!", Toast.LENGTH_SHORT).show();
         }

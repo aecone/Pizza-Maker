@@ -23,14 +23,14 @@ import java.util.ArrayList;
 public class Specialty extends AppCompatActivity implements RecyclerViewInterface{
 
     ArrayList<PizzaModel> pizzaModel = new ArrayList<>();
+    private static final int NOT_SELECTED = -1;
     int[] pizzaImages = {R.drawable.deluxe, R.drawable.supreme, R.drawable.meatzza, R.drawable.pepperoni, R.drawable.seafood, R.drawable.hawaiian, R.drawable.veggie, R.drawable.margherita, R.drawable.chonky, R.drawable.kim};
     PizzaSingleton singleton = PizzaSingleton.getInstance();
     private TextView price;
     private CheckBox extraSauce, extraCheese;
     private RadioButton small, medium, large;
     private double sum;
-    private boolean pizzaSelected;
-    private int position=-1;
+    private int position=NOT_SELECTED;
     String pizzaType;
 
     @Override
@@ -120,7 +120,7 @@ public class Specialty extends AppCompatActivity implements RecyclerViewInterfac
                 .show();
     }
     public void handleAddToOrder(View view){
-        if(position!=-1) {
+        if(position!=NOT_SELECTED) {
             getPizzaType();
             Pizza pizza = singleton.createPizza(pizzaType);
             if (extraSauce.isChecked()) {
@@ -145,7 +145,7 @@ public class Specialty extends AppCompatActivity implements RecyclerViewInterfac
             large.setChecked(false);
             extraCheese.setChecked(false);
             extraSauce.setChecked(false);
-            position = -1;
+            position = NOT_SELECTED;
             Toast.makeText(this, "Pizza Added to Order!", Toast.LENGTH_SHORT).show();
         }
         else{
@@ -156,7 +156,7 @@ public class Specialty extends AppCompatActivity implements RecyclerViewInterfac
 
 
     public void handlePriceChange(View view){
-        if(position!=-1) {
+        if(position!=NOT_SELECTED) {
             if (position == 0) {
                 sum = 14.99;
             }
