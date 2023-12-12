@@ -12,6 +12,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+/**
+ * This class represents the adapter for the pizza recycler view
+ * @author Eric Cheung, Andrea Kim
+ */
 public class PizzaRecyclerViewAdapter extends RecyclerView.Adapter<PizzaRecyclerViewAdapter.MyViewHolder> {
     Context context;
     ArrayList<PizzaModel> pizzaModels;
@@ -21,6 +25,15 @@ public class PizzaRecyclerViewAdapter extends RecyclerView.Adapter<PizzaRecycler
         this.pizzaModels = pizzaModels;
         this.recyclerViewInterface = recyclerViewInterface;
     }
+
+    /**
+     * This method creates the view holder for items in the recycler view
+     * @param parent The ViewGroup into which the new View will be added after it is bound to
+     *               an adapter position.
+     * @param viewType The view type of the new View.
+     *
+     * @return the view holder
+     */
     @NonNull
     @Override
     public PizzaRecyclerViewAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -29,6 +42,12 @@ public class PizzaRecyclerViewAdapter extends RecyclerView.Adapter<PizzaRecycler
         return new PizzaRecyclerViewAdapter.MyViewHolder(view, recyclerViewInterface);
     }
 
+    /**
+     * This method binds the items together in the recycler view
+     * @param holder The ViewHolder which should be updated to represent the contents of the
+     *        item at the given position in the data set.
+     * @param position The position of the item within the adapter's data set.
+     */
     @Override
     public void onBindViewHolder(@NonNull PizzaRecyclerViewAdapter.MyViewHolder holder, int position) {
         holder.tvName.setText(pizzaModels.get(position).getPizzaType());
@@ -37,14 +56,27 @@ public class PizzaRecyclerViewAdapter extends RecyclerView.Adapter<PizzaRecycler
         holder.imageView.setImageResource(pizzaModels.get(position).getImage());
     }
 
+    /**
+     * This method gets the number of items in the recycler view
+     * @return the number of items in the recycler view
+     */
     @Override
     public int getItemCount() {
         return pizzaModels.size();
     }
 
+    /**
+     * The MyViewHolder class to get the views from the xml file
+     */
     public static class MyViewHolder extends RecyclerView.ViewHolder{
         ImageView imageView;
         TextView tvName, tvToppings, tvSauce;
+
+        /**
+         * MyViewHolder constructor
+         * @param itemView view to get items from
+         * @param recyclerViewInterface recyclerViewInterface to handle on click functionality
+         */
         public MyViewHolder(@NonNull View itemView, RecyclerViewInterface recyclerViewInterface) {
             super(itemView);
             imageView = itemView.findViewById(R.id.pizzaImage);
@@ -52,6 +84,9 @@ public class PizzaRecyclerViewAdapter extends RecyclerView.Adapter<PizzaRecycler
             tvToppings = itemView.findViewById(R.id.toppings);
             tvSauce = itemView.findViewById(R.id.sauce);
 
+            /**
+             * OnClick listener for recycler view
+             */
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
