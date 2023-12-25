@@ -103,55 +103,27 @@ public class BuildOwn extends AppCompatActivity {
         initializeToppingsAndImage();
 
         // Set listeners
-        addOrderB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setAddOrderB();
-            }
-        });
-        toppingsB.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                selectedToppingPosition = position;
-            }
+        addOrderB.setOnClickListener(v -> setAddOrderB());
+
+        toppingsB.setOnItemClickListener((parent, view, position, id) -> selectedToppingPosition = position);
+
+        addTopping.setOnClickListener(v -> {
+            // Handle item click
+            addToppings(selectedToppingPosition);
         });
 
-        addTopping.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Handle item click
-                addToppings(selectedToppingPosition);
-            }
+        pickedToppingsB.setOnItemClickListener((parent, view, position, id) -> selectedRemoveToppingPosition = position);
+
+        removeTopping.setOnClickListener(v -> removeToppings(selectedRemoveToppingPosition));
+
+        extraCheeseB.setOnClickListener(v -> {
+            // Handle item click
+            updatePrice();
         });
 
-        pickedToppingsB.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                selectedRemoveToppingPosition = position;
-            }
-        });
-
-        removeTopping.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                removeToppings(selectedRemoveToppingPosition);
-            }
-        });
-
-        extraCheeseB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Handle item click
-                updatePrice();
-            }
-        });
-
-        extraSauceB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Handle item click
-                updatePrice();
-            }
+        extraSauceB.setOnClickListener(v -> {
+            // Handle item click
+            updatePrice();
         });
 
         sizeType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
