@@ -15,15 +15,14 @@ Users can add pizzas to their order with ease. The options include:
 
 #### View Current Order
 
-The app presents a detailed summary of the user's current order, enabling review and edits. The `RecyclerView` coupled with custom adapters and view holders provides an efficient and user-friendly interface to manage the selected items.
-
-#### Place Order
-
-Once the selection is perfected, placing an order is just a tap away. The application triggers the backend processes to queue the order for preparation.
+* Store staff can add one or more pizzas to an order or remove selected pizzas.
+* Before placing an order, staff can review the current order details, including selected toppings, sauce/extra sauce, extra cheese, individual pizza prices, total amount, sales tax amount, and order total.
 
 #### View All Orders
 
-Transparency is key in order management. The application allows users to view all active orders, ensuring they stay updated on the status of their requests and the overall order pipeline.
+* The system keeps track of all store orders, allowing staff to browse and cancel orders.
+* Store orders are displayed by order numbers, including the order total (with 2 decimal places) and the list of pizzas in each order.
+
 
 ### User Interface & Interaction
 
