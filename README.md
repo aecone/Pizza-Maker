@@ -79,6 +79,13 @@ To instantiate new pizzas, an Abstract Factory design pattern is employed. This 
 5. The order can be placed, modified, or canceled based on the customer's final decision.
 6. Completed orders are tracked and can be reviewed or canceled from the order list.
 
+## Images
+<img src="https://github.com/aecone/Pizza-Maker/assets/80376288/b026c10b-0cba-48a5-9e7a-c3067eede99c" width="300">
+<img src="https://github.com/aecone/Pizza-Maker/assets/80376288/f434cf7c-b7c9-41fd-9613-0e9cfd0c98f8" width="300">
+<img src="https://github.com/aecone/Pizza-Maker/assets/80376288/5d904a32-1b13-4638-875e-ad484d1a3fae" width="300">
+<img src="https://github.com/aecone/Pizza-Maker/assets/80376288/d192d538-601e-4d3e-a5aa-b32812dcf900" width="300">
+<img src="https://github.com/aecone/Pizza-Maker/assets/80376288/9f89dcb2-b9a9-4eb9-92fd-5ee7fe17360e" width="300">
+
 ## How to Use
 
 1. **Clone the Repository:**
