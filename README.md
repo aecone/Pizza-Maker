@@ -34,10 +34,6 @@ Users can add pizzas to their order with ease. The options include:
 
 - **Order Tracking and Browsing:** All orders are tracked uniquely via order numbers. The staff can browse through all store orders, cancel any order, and view detailed totals and pizza lists for each.
 
-### Data Management
-
-- **Order Export:** There is a feature for exporting the details of store orders to a text file, including order numbers, pizza details, and the total amount for record-keeping and reporting purposes.
-
 ## Technical Specifications
 
 ### Action Event Handling
